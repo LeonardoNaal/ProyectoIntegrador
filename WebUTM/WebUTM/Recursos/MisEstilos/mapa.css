@@ -1,0 +1,32 @@
+﻿div.mapa_imagen {
+  position: relative
+}
+ul.notas li {
+  list-style: none;
+  display: none;
+  position: absolute;
+  border: medium solid white;
+  background: url("esta_imagen_no_existe");
+}
+div.mapa_imagen:hover ul.notas li {
+  display: block;
+}
+ul.notas li p {
+  margin: 10px 0 0 0;
+  padding: .3em;
+  display: none;
+  background: #FFF;
+  opacity: 0.65;
+  position: absolute;
+  top: 100%;
+}
+ul.notas li:hover p {
+  display: block;
+}
+ 
+ul.notas li#nota1 {
+  width: 87px; height: 70px; top: 412px; left: 413px;
+}
+ul.notas li#nota2 {
+  width: 78px; height: 90px; top: 500px; left: 397px;
+}

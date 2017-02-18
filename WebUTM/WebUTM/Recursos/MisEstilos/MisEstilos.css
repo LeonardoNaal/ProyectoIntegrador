@@ -1,0 +1,42 @@
+﻿.mibanner {
+    background: url(/Recursos/Images/bann.png) no-repeat 0px 0px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 280px;
+    padding: 6em 0 0;
+    text-align: center;
+}
+.mih3 {
+    color:#f58025;
+}
+.mia {
+    color:#fff;
+    text-decoration:none;
+}
+.mih2 {
+    color:#fff;
+}
+.mistitulos {
+    color:#49872E;
+}
+.miotroh3 {
+    color:#1d8236;
+}
+.mibanner2 {
+    background: url(/Recursos/Images/banner2.png) no-repeat 0px 0px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 380px;
+    min-width:100%;
+    padding: 6em 0 0;
+    text-align: center;
+}
+.milabel {
+    font-family:'Cagliostro', sans-serif;
+}

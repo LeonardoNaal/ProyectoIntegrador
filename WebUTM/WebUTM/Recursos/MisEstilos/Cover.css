@@ -1,0 +1,9 @@
+﻿.cover1 {
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(../Images/blurutm.jpg);
+}
+.formcontrol2 {
+    background-color:transparent;
+}

@@ -1,0 +1,3400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsuarioBo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:UsuarioBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsuarioBO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IdUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApePat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApeMat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodTipo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomTipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UsuarioBoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="PublicacionBo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:PublicacionBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PublicacionBO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPublicacion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titulo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contenido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Imagen" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Video" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PublicacionBoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="TipoUsuarioBo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:TipoUsuarioBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TipoUsuarioBO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodTipo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreTipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TipoUsuarioBoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SitioBo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:SitioBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SitioBO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdSitio" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Planta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoSitio" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SitioBoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ActividadBo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:ActividadesBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActividadesBO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdActividad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaIni" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaFinal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HoraIni" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HoraFin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdSitio" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActividadBoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="HorarioBo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:HorarioBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="HorarioBO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodHora" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HoraIni" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HoraFin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdSitio" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HorarioBoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="usuarioHoraBo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:UsuarioHoraBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsuarioHoraBO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodHora" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdSitio" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="usuarioHoraBoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ActividadHoraBo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:ActividadHoraBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActividadHoraBO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdActividad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodHora" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActividadHoraBoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="TipoPublicacionBo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:TipoPublicacionBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TipoPublicacionBO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomTipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TipoPublicacionBoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ComentarioBO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:ComentarioBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ComentarioBO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contenido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodPub" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ComentarioBOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AgregarComentario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ob" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarComentarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarComentarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DevuelveComentarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DevuelveComentariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DevuelveComentariosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="filtrocomentario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ob" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="filtrocomentarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filtrocomentarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarCodTipoSitio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarCodTipoSitioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cargarCodTipoSitioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="jsonpublicaciones">
+        <s:complexType />
+      </s:element>
+      <s:element name="jsonpublicacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsonpublicacionesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="jsonAviso">
+        <s:complexType />
+      </s:element>
+      <s:element name="jsonAvisoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsonAvisoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="jsonPublicidad">
+        <s:complexType />
+      </s:element>
+      <s:element name="jsonPublicidadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsonPublicidadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="jsonReporte">
+        <s:complexType />
+      </s:element>
+      <s:element name="jsonReporteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsonReporteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="imagenes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cod" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="imagenesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imagenesResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Videos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cod" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VideosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VideosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActividadUsuarioBO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:ActividadUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActividadUsuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDActividad1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Asistencia1" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodUsuario1" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActividadUsuarioBOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AsistenciaActividades">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AsistenciaActividadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AsistenciaActividadesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codA" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cargarCAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarActividadUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ob" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarActividadUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarActividadUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarActividadUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarActividadUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarActividadUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComprobarExistActividad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ob" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComprobarExistActividadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ComprobarExistActividadResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modificarUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="UsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsuariosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CodigoTipoUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CodigoTipoUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoTipoUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidarUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VistaReporteUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="VistaReporteUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VistaReporteUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarTipoUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarTipoUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarTipoUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarTipoUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarTipoUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarTipoUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarTipoUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarTipoUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modificarTipoUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NomTipoUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cod" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NomTipoUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NomTipoUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TiposUsuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="TiposUsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TiposUsuariosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TiposUsuariosAdmin">
+        <s:complexType />
+      </s:element>
+      <s:element name="TiposUsuariosAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TiposUsuariosAdminResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarTipoUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarTipoUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarTipoUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarActividad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarActividadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarActividadResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TopActividades">
+        <s:complexType />
+      </s:element>
+      <s:element name="TopActividadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TopActividadesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarActividad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarActividadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarActividadResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarActividad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarActividadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modificarActividadResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Actividades">
+        <s:complexType />
+      </s:element>
+      <s:element name="ActividadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActividadesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarActividad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarActividadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarActividadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarActividadHora">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarActividadHoraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarActividadHoraResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarActividadHora">
+        <s:complexType />
+      </s:element>
+      <s:element name="EliminarActividadHoraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EliminarActividadHoraResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarHorario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarHorarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarHorario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarHorarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarHorario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modificarHorarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TiposHorario">
+        <s:complexType />
+      </s:element>
+      <s:element name="TiposHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TiposHorarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarHorario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarHorarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarPublicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarPublicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarPublicacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TopPublicaciones">
+        <s:complexType />
+      </s:element>
+      <s:element name="TopPublicacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TopPublicacionesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TopPublicaciones2">
+        <s:complexType />
+      </s:element>
+      <s:element name="TopPublicaciones2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TopPublicaciones2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarPublicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarPublicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarPublicacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarPublicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarPublicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modificarPublicacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPublicaciones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPublicacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarPublicacionesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarSitio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarSitioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarSitioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarSitio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarSitioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarSitioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarSitio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarSitioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modificarSitioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHora">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetHoraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHoraResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTipoSitios">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTipoSitiosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTipoSitiosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sitios">
+        <s:complexType />
+      </s:element>
+      <s:element name="SitiosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SitiosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarSitio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarSitioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarSitioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarTipoPublicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarTipoPublicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarTipoPublicacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarTipoPublicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarTipoPublicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarTipoPublicacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarTipoPublicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarTipoPublicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modificarTipoPublicacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TiposPublicaciones">
+        <s:complexType />
+      </s:element>
+      <s:element name="TiposPublicacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TiposPublicacionesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarTipoPublicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarTipoPublicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarTipoPublicacionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarUsuarioHora">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarUsuarioHoraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarUsuarioHoraResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarUsuarioHora">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarUsuarioHoraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarUsuarioHoraResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarUsuarioHora">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarUsuarioHoraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarUsuarioHoraResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="devuelveUsuarioHoraSP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ok" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="devuelveUsuarioHoraSPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="devuelveUsuarioHoraSPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsuariosHoras">
+        <s:complexType />
+      </s:element>
+      <s:element name="UsuariosHorasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsuariosHorasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="comprobarExistencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="matricula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="comprobarExistenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="comprobarExistenciaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioBoSoapIn">
+    <wsdl:part name="parameters" element="tns:UsuarioBo" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioBoSoapOut">
+    <wsdl:part name="parameters" element="tns:UsuarioBoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicacionBoSoapIn">
+    <wsdl:part name="parameters" element="tns:PublicacionBo" />
+  </wsdl:message>
+  <wsdl:message name="PublicacionBoSoapOut">
+    <wsdl:part name="parameters" element="tns:PublicacionBoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TipoUsuarioBoSoapIn">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioBo" />
+  </wsdl:message>
+  <wsdl:message name="TipoUsuarioBoSoapOut">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioBoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SitioBoSoapIn">
+    <wsdl:part name="parameters" element="tns:SitioBo" />
+  </wsdl:message>
+  <wsdl:message name="SitioBoSoapOut">
+    <wsdl:part name="parameters" element="tns:SitioBoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActividadBoSoapIn">
+    <wsdl:part name="parameters" element="tns:ActividadBo" />
+  </wsdl:message>
+  <wsdl:message name="ActividadBoSoapOut">
+    <wsdl:part name="parameters" element="tns:ActividadBoResponse" />
+  </wsdl:message>
+  <wsdl:message name="HorarioBoSoapIn">
+    <wsdl:part name="parameters" element="tns:HorarioBo" />
+  </wsdl:message>
+  <wsdl:message name="HorarioBoSoapOut">
+    <wsdl:part name="parameters" element="tns:HorarioBoResponse" />
+  </wsdl:message>
+  <wsdl:message name="usuarioHoraBoSoapIn">
+    <wsdl:part name="parameters" element="tns:usuarioHoraBo" />
+  </wsdl:message>
+  <wsdl:message name="usuarioHoraBoSoapOut">
+    <wsdl:part name="parameters" element="tns:usuarioHoraBoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActividadHoraBoSoapIn">
+    <wsdl:part name="parameters" element="tns:ActividadHoraBo" />
+  </wsdl:message>
+  <wsdl:message name="ActividadHoraBoSoapOut">
+    <wsdl:part name="parameters" element="tns:ActividadHoraBoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TipoPublicacionBoSoapIn">
+    <wsdl:part name="parameters" element="tns:TipoPublicacionBo" />
+  </wsdl:message>
+  <wsdl:message name="TipoPublicacionBoSoapOut">
+    <wsdl:part name="parameters" element="tns:TipoPublicacionBoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ComentarioBOSoapIn">
+    <wsdl:part name="parameters" element="tns:ComentarioBO" />
+  </wsdl:message>
+  <wsdl:message name="ComentarioBOSoapOut">
+    <wsdl:part name="parameters" element="tns:ComentarioBOResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarComentarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarComentario" />
+  </wsdl:message>
+  <wsdl:message name="AgregarComentarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarComentarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="DevuelveComentariosSoapIn">
+    <wsdl:part name="parameters" element="tns:DevuelveComentarios" />
+  </wsdl:message>
+  <wsdl:message name="DevuelveComentariosSoapOut">
+    <wsdl:part name="parameters" element="tns:DevuelveComentariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="filtrocomentarioSoapIn">
+    <wsdl:part name="parameters" element="tns:filtrocomentario" />
+  </wsdl:message>
+  <wsdl:message name="filtrocomentarioSoapOut">
+    <wsdl:part name="parameters" element="tns:filtrocomentarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="cargarCodTipoSitioSoapIn">
+    <wsdl:part name="parameters" element="tns:cargarCodTipoSitio" />
+  </wsdl:message>
+  <wsdl:message name="cargarCodTipoSitioSoapOut">
+    <wsdl:part name="parameters" element="tns:cargarCodTipoSitioResponse" />
+  </wsdl:message>
+  <wsdl:message name="jsonpublicacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:jsonpublicaciones" />
+  </wsdl:message>
+  <wsdl:message name="jsonpublicacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:jsonpublicacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="jsonAvisoSoapIn">
+    <wsdl:part name="parameters" element="tns:jsonAviso" />
+  </wsdl:message>
+  <wsdl:message name="jsonAvisoSoapOut">
+    <wsdl:part name="parameters" element="tns:jsonAvisoResponse" />
+  </wsdl:message>
+  <wsdl:message name="jsonPublicidadSoapIn">
+    <wsdl:part name="parameters" element="tns:jsonPublicidad" />
+  </wsdl:message>
+  <wsdl:message name="jsonPublicidadSoapOut">
+    <wsdl:part name="parameters" element="tns:jsonPublicidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="jsonReporteSoapIn">
+    <wsdl:part name="parameters" element="tns:jsonReporte" />
+  </wsdl:message>
+  <wsdl:message name="jsonReporteSoapOut">
+    <wsdl:part name="parameters" element="tns:jsonReporteResponse" />
+  </wsdl:message>
+  <wsdl:message name="imagenesSoapIn">
+    <wsdl:part name="parameters" element="tns:imagenes" />
+  </wsdl:message>
+  <wsdl:message name="imagenesSoapOut">
+    <wsdl:part name="parameters" element="tns:imagenesResponse" />
+  </wsdl:message>
+  <wsdl:message name="VideosSoapIn">
+    <wsdl:part name="parameters" element="tns:Videos" />
+  </wsdl:message>
+  <wsdl:message name="VideosSoapOut">
+    <wsdl:part name="parameters" element="tns:VideosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActividadUsuarioBOSoapIn">
+    <wsdl:part name="parameters" element="tns:ActividadUsuarioBO" />
+  </wsdl:message>
+  <wsdl:message name="ActividadUsuarioBOSoapOut">
+    <wsdl:part name="parameters" element="tns:ActividadUsuarioBOResponse" />
+  </wsdl:message>
+  <wsdl:message name="AsistenciaActividadesSoapIn">
+    <wsdl:part name="parameters" element="tns:AsistenciaActividades" />
+  </wsdl:message>
+  <wsdl:message name="AsistenciaActividadesSoapOut">
+    <wsdl:part name="parameters" element="tns:AsistenciaActividadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="cargarCASoapIn">
+    <wsdl:part name="parameters" element="tns:cargarCA" />
+  </wsdl:message>
+  <wsdl:message name="cargarCASoapOut">
+    <wsdl:part name="parameters" element="tns:cargarCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarActividadUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarActividadUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ModificarActividadUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarActividadUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarActividadUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarActividadUsuario" />
+  </wsdl:message>
+  <wsdl:message name="AgregarActividadUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarActividadUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ComprobarExistActividadSoapIn">
+    <wsdl:part name="parameters" element="tns:ComprobarExistActividad" />
+  </wsdl:message>
+  <wsdl:message name="ComprobarExistActividadSoapOut">
+    <wsdl:part name="parameters" element="tns:ComprobarExistActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="AgregarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="EliminarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="modificarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuarios" />
+  </wsdl:message>
+  <wsdl:message name="UsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:UsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="BuscarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodigoTipoUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:CodigoTipoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="CodigoTipoUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:CodigoTipoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ValidarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="VistaReporteUserSoapIn">
+    <wsdl:part name="parameters" element="tns:VistaReporteUser" />
+  </wsdl:message>
+  <wsdl:message name="VistaReporteUserSoapOut">
+    <wsdl:part name="parameters" element="tns:VistaReporteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarTipoUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarTipoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="AgregarTipoUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarTipoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarTipoUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarTipoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="EliminarTipoUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarTipoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarTipoUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarTipoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="modificarTipoUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarTipoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="NomTipoUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:NomTipoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="NomTipoUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:NomTipoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="TiposUsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:TiposUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="TiposUsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:TiposUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TiposUsuariosAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:TiposUsuariosAdmin" />
+  </wsdl:message>
+  <wsdl:message name="TiposUsuariosAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:TiposUsuariosAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarTipoUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarTipoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="BuscarTipoUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarTipoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarActividadSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarActividad" />
+  </wsdl:message>
+  <wsdl:message name="AgregarActividadSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="TopActividadesSoapIn">
+    <wsdl:part name="parameters" element="tns:TopActividades" />
+  </wsdl:message>
+  <wsdl:message name="TopActividadesSoapOut">
+    <wsdl:part name="parameters" element="tns:TopActividadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarActividadSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarActividad" />
+  </wsdl:message>
+  <wsdl:message name="EliminarActividadSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarActividadSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarActividad" />
+  </wsdl:message>
+  <wsdl:message name="modificarActividadSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActividadesSoapIn">
+    <wsdl:part name="parameters" element="tns:Actividades" />
+  </wsdl:message>
+  <wsdl:message name="ActividadesSoapOut">
+    <wsdl:part name="parameters" element="tns:ActividadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarActividadSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarActividad" />
+  </wsdl:message>
+  <wsdl:message name="BuscarActividadSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarActividadHoraSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarActividadHora" />
+  </wsdl:message>
+  <wsdl:message name="AgregarActividadHoraSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarActividadHoraResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarActividadHoraSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarActividadHora" />
+  </wsdl:message>
+  <wsdl:message name="EliminarActividadHoraSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarActividadHoraResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarHorario" />
+  </wsdl:message>
+  <wsdl:message name="AgregarHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarHorario" />
+  </wsdl:message>
+  <wsdl:message name="EliminarHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarHorario" />
+  </wsdl:message>
+  <wsdl:message name="modificarHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="TiposHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:TiposHorario" />
+  </wsdl:message>
+  <wsdl:message name="TiposHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:TiposHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarHorario" />
+  </wsdl:message>
+  <wsdl:message name="BuscarHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarPublicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarPublicacion" />
+  </wsdl:message>
+  <wsdl:message name="AgregarPublicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarPublicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TopPublicacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:TopPublicaciones" />
+  </wsdl:message>
+  <wsdl:message name="TopPublicacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:TopPublicacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TopPublicaciones2SoapIn">
+    <wsdl:part name="parameters" element="tns:TopPublicaciones2" />
+  </wsdl:message>
+  <wsdl:message name="TopPublicaciones2SoapOut">
+    <wsdl:part name="parameters" element="tns:TopPublicaciones2Response" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPublicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarPublicacion" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPublicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarPublicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarPublicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarPublicacion" />
+  </wsdl:message>
+  <wsdl:message name="modificarPublicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarPublicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPublicacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarPublicaciones" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPublicacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarPublicacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarSitioSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarSitio" />
+  </wsdl:message>
+  <wsdl:message name="AgregarSitioSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarSitioResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarSitioSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarSitio" />
+  </wsdl:message>
+  <wsdl:message name="EliminarSitioSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarSitioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarSitioSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarSitio" />
+  </wsdl:message>
+  <wsdl:message name="modificarSitioSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarSitioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHoraSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHora" />
+  </wsdl:message>
+  <wsdl:message name="GetHoraSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHoraResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTipoSitiosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTipoSitios" />
+  </wsdl:message>
+  <wsdl:message name="GetTipoSitiosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTipoSitiosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SitiosSoapIn">
+    <wsdl:part name="parameters" element="tns:Sitios" />
+  </wsdl:message>
+  <wsdl:message name="SitiosSoapOut">
+    <wsdl:part name="parameters" element="tns:SitiosResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarSitioSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarSitio" />
+  </wsdl:message>
+  <wsdl:message name="BuscarSitioSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarSitioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarTipoPublicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarTipoPublicacion" />
+  </wsdl:message>
+  <wsdl:message name="AgregarTipoPublicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarTipoPublicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarTipoPublicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarTipoPublicacion" />
+  </wsdl:message>
+  <wsdl:message name="EliminarTipoPublicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarTipoPublicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarTipoPublicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarTipoPublicacion" />
+  </wsdl:message>
+  <wsdl:message name="modificarTipoPublicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarTipoPublicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TiposPublicacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:TiposPublicaciones" />
+  </wsdl:message>
+  <wsdl:message name="TiposPublicacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:TiposPublicacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarTipoPublicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarTipoPublicacion" />
+  </wsdl:message>
+  <wsdl:message name="BuscarTipoPublicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarTipoPublicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarUsuarioHoraSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarUsuarioHora" />
+  </wsdl:message>
+  <wsdl:message name="AgregarUsuarioHoraSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarUsuarioHoraResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarUsuarioHoraSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioHora" />
+  </wsdl:message>
+  <wsdl:message name="BuscarUsuarioHoraSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioHoraResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarUsuarioHoraSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioHora" />
+  </wsdl:message>
+  <wsdl:message name="EliminarUsuarioHoraSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioHoraResponse" />
+  </wsdl:message>
+  <wsdl:message name="devuelveUsuarioHoraSPSoapIn">
+    <wsdl:part name="parameters" element="tns:devuelveUsuarioHoraSP" />
+  </wsdl:message>
+  <wsdl:message name="devuelveUsuarioHoraSPSoapOut">
+    <wsdl:part name="parameters" element="tns:devuelveUsuarioHoraSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsuariosHorasSoapIn">
+    <wsdl:part name="parameters" element="tns:UsuariosHoras" />
+  </wsdl:message>
+  <wsdl:message name="UsuariosHorasSoapOut">
+    <wsdl:part name="parameters" element="tns:UsuariosHorasResponse" />
+  </wsdl:message>
+  <wsdl:message name="comprobarExistenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:comprobarExistencia" />
+  </wsdl:message>
+  <wsdl:message name="comprobarExistenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:comprobarExistenciaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioBo">
+      <wsdl:input message="tns:UsuarioBoSoapIn" />
+      <wsdl:output message="tns:UsuarioBoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PublicacionBo">
+      <wsdl:input message="tns:PublicacionBoSoapIn" />
+      <wsdl:output message="tns:PublicacionBoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioBo">
+      <wsdl:input message="tns:TipoUsuarioBoSoapIn" />
+      <wsdl:output message="tns:TipoUsuarioBoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SitioBo">
+      <wsdl:input message="tns:SitioBoSoapIn" />
+      <wsdl:output message="tns:SitioBoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActividadBo">
+      <wsdl:input message="tns:ActividadBoSoapIn" />
+      <wsdl:output message="tns:ActividadBoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HorarioBo">
+      <wsdl:input message="tns:HorarioBoSoapIn" />
+      <wsdl:output message="tns:HorarioBoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="usuarioHoraBo">
+      <wsdl:input message="tns:usuarioHoraBoSoapIn" />
+      <wsdl:output message="tns:usuarioHoraBoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActividadHoraBo">
+      <wsdl:input message="tns:ActividadHoraBoSoapIn" />
+      <wsdl:output message="tns:ActividadHoraBoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoPublicacionBo">
+      <wsdl:input message="tns:TipoPublicacionBoSoapIn" />
+      <wsdl:output message="tns:TipoPublicacionBoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComentarioBO">
+      <wsdl:input message="tns:ComentarioBOSoapIn" />
+      <wsdl:output message="tns:ComentarioBOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarComentario">
+      <wsdl:input message="tns:AgregarComentarioSoapIn" />
+      <wsdl:output message="tns:AgregarComentarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DevuelveComentarios">
+      <wsdl:input message="tns:DevuelveComentariosSoapIn" />
+      <wsdl:output message="tns:DevuelveComentariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrocomentario">
+      <wsdl:input message="tns:filtrocomentarioSoapIn" />
+      <wsdl:output message="tns:filtrocomentarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cargarCodTipoSitio">
+      <wsdl:input message="tns:cargarCodTipoSitioSoapIn" />
+      <wsdl:output message="tns:cargarCodTipoSitioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jsonpublicaciones">
+      <wsdl:input message="tns:jsonpublicacionesSoapIn" />
+      <wsdl:output message="tns:jsonpublicacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jsonAviso">
+      <wsdl:input message="tns:jsonAvisoSoapIn" />
+      <wsdl:output message="tns:jsonAvisoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jsonPublicidad">
+      <wsdl:input message="tns:jsonPublicidadSoapIn" />
+      <wsdl:output message="tns:jsonPublicidadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jsonReporte">
+      <wsdl:input message="tns:jsonReporteSoapIn" />
+      <wsdl:output message="tns:jsonReporteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="imagenes">
+      <wsdl:input message="tns:imagenesSoapIn" />
+      <wsdl:output message="tns:imagenesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Videos">
+      <wsdl:input message="tns:VideosSoapIn" />
+      <wsdl:output message="tns:VideosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActividadUsuarioBO">
+      <wsdl:input message="tns:ActividadUsuarioBOSoapIn" />
+      <wsdl:output message="tns:ActividadUsuarioBOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AsistenciaActividades">
+      <wsdl:input message="tns:AsistenciaActividadesSoapIn" />
+      <wsdl:output message="tns:AsistenciaActividadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cargarCA">
+      <wsdl:input message="tns:cargarCASoapIn" />
+      <wsdl:output message="tns:cargarCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarActividadUsuario">
+      <wsdl:input message="tns:ModificarActividadUsuarioSoapIn" />
+      <wsdl:output message="tns:ModificarActividadUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividadUsuario">
+      <wsdl:input message="tns:AgregarActividadUsuarioSoapIn" />
+      <wsdl:output message="tns:AgregarActividadUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComprobarExistActividad">
+      <wsdl:input message="tns:ComprobarExistActividadSoapIn" />
+      <wsdl:output message="tns:ComprobarExistActividadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuario">
+      <wsdl:input message="tns:AgregarUsuarioSoapIn" />
+      <wsdl:output message="tns:AgregarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input message="tns:EliminarUsuarioSoapIn" />
+      <wsdl:output message="tns:EliminarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <wsdl:input message="tns:modificarUsuarioSoapIn" />
+      <wsdl:output message="tns:modificarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios">
+      <wsdl:input message="tns:UsuariosSoapIn" />
+      <wsdl:output message="tns:UsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuario">
+      <wsdl:input message="tns:BuscarUsuarioSoapIn" />
+      <wsdl:output message="tns:BuscarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CodigoTipoUsuario">
+      <wsdl:input message="tns:CodigoTipoUsuarioSoapIn" />
+      <wsdl:output message="tns:CodigoTipoUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuario">
+      <wsdl:input message="tns:ValidarUsuarioSoapIn" />
+      <wsdl:output message="tns:ValidarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VistaReporteUser">
+      <wsdl:input message="tns:VistaReporteUserSoapIn" />
+      <wsdl:output message="tns:VistaReporteUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTipoUsuario">
+      <wsdl:input message="tns:AgregarTipoUsuarioSoapIn" />
+      <wsdl:output message="tns:AgregarTipoUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTipoUsuario">
+      <wsdl:input message="tns:EliminarTipoUsuarioSoapIn" />
+      <wsdl:output message="tns:EliminarTipoUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarTipoUsuario">
+      <wsdl:input message="tns:modificarTipoUsuarioSoapIn" />
+      <wsdl:output message="tns:modificarTipoUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NomTipoUsuario">
+      <wsdl:input message="tns:NomTipoUsuarioSoapIn" />
+      <wsdl:output message="tns:NomTipoUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TiposUsuarios">
+      <wsdl:input message="tns:TiposUsuariosSoapIn" />
+      <wsdl:output message="tns:TiposUsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TiposUsuariosAdmin">
+      <wsdl:input message="tns:TiposUsuariosAdminSoapIn" />
+      <wsdl:output message="tns:TiposUsuariosAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTipoUsuario">
+      <wsdl:input message="tns:BuscarTipoUsuarioSoapIn" />
+      <wsdl:output message="tns:BuscarTipoUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividad">
+      <wsdl:input message="tns:AgregarActividadSoapIn" />
+      <wsdl:output message="tns:AgregarActividadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TopActividades">
+      <wsdl:input message="tns:TopActividadesSoapIn" />
+      <wsdl:output message="tns:TopActividadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarActividad">
+      <wsdl:input message="tns:EliminarActividadSoapIn" />
+      <wsdl:output message="tns:EliminarActividadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarActividad">
+      <wsdl:input message="tns:modificarActividadSoapIn" />
+      <wsdl:output message="tns:modificarActividadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Actividades">
+      <wsdl:input message="tns:ActividadesSoapIn" />
+      <wsdl:output message="tns:ActividadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarActividad">
+      <wsdl:input message="tns:BuscarActividadSoapIn" />
+      <wsdl:output message="tns:BuscarActividadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividadHora">
+      <wsdl:input message="tns:AgregarActividadHoraSoapIn" />
+      <wsdl:output message="tns:AgregarActividadHoraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarActividadHora">
+      <wsdl:input message="tns:EliminarActividadHoraSoapIn" />
+      <wsdl:output message="tns:EliminarActividadHoraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarHorario">
+      <wsdl:input message="tns:AgregarHorarioSoapIn" />
+      <wsdl:output message="tns:AgregarHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarHorario">
+      <wsdl:input message="tns:EliminarHorarioSoapIn" />
+      <wsdl:output message="tns:EliminarHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarHorario">
+      <wsdl:input message="tns:modificarHorarioSoapIn" />
+      <wsdl:output message="tns:modificarHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TiposHorario">
+      <wsdl:input message="tns:TiposHorarioSoapIn" />
+      <wsdl:output message="tns:TiposHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarHorario">
+      <wsdl:input message="tns:BuscarHorarioSoapIn" />
+      <wsdl:output message="tns:BuscarHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPublicacion">
+      <wsdl:input message="tns:AgregarPublicacionSoapIn" />
+      <wsdl:output message="tns:AgregarPublicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TopPublicaciones">
+      <wsdl:input message="tns:TopPublicacionesSoapIn" />
+      <wsdl:output message="tns:TopPublicacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TopPublicaciones2">
+      <wsdl:input message="tns:TopPublicaciones2SoapIn" />
+      <wsdl:output message="tns:TopPublicaciones2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPublicacion">
+      <wsdl:input message="tns:EliminarPublicacionSoapIn" />
+      <wsdl:output message="tns:EliminarPublicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarPublicacion">
+      <wsdl:input message="tns:modificarPublicacionSoapIn" />
+      <wsdl:output message="tns:modificarPublicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPublicaciones">
+      <wsdl:input message="tns:BuscarPublicacionesSoapIn" />
+      <wsdl:output message="tns:BuscarPublicacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarSitio">
+      <wsdl:input message="tns:AgregarSitioSoapIn" />
+      <wsdl:output message="tns:AgregarSitioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarSitio">
+      <wsdl:input message="tns:EliminarSitioSoapIn" />
+      <wsdl:output message="tns:EliminarSitioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input message="tns:GetUserSoapIn" />
+      <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarSitio">
+      <wsdl:input message="tns:modificarSitioSoapIn" />
+      <wsdl:output message="tns:modificarSitioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHora">
+      <wsdl:input message="tns:GetHoraSoapIn" />
+      <wsdl:output message="tns:GetHoraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTipoSitios">
+      <wsdl:input message="tns:GetTipoSitiosSoapIn" />
+      <wsdl:output message="tns:GetTipoSitiosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sitios">
+      <wsdl:input message="tns:SitiosSoapIn" />
+      <wsdl:output message="tns:SitiosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarSitio">
+      <wsdl:input message="tns:BuscarSitioSoapIn" />
+      <wsdl:output message="tns:BuscarSitioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTipoPublicacion">
+      <wsdl:input message="tns:AgregarTipoPublicacionSoapIn" />
+      <wsdl:output message="tns:AgregarTipoPublicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTipoPublicacion">
+      <wsdl:input message="tns:EliminarTipoPublicacionSoapIn" />
+      <wsdl:output message="tns:EliminarTipoPublicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarTipoPublicacion">
+      <wsdl:input message="tns:modificarTipoPublicacionSoapIn" />
+      <wsdl:output message="tns:modificarTipoPublicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TiposPublicaciones">
+      <wsdl:input message="tns:TiposPublicacionesSoapIn" />
+      <wsdl:output message="tns:TiposPublicacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTipoPublicacion">
+      <wsdl:input message="tns:BuscarTipoPublicacionSoapIn" />
+      <wsdl:output message="tns:BuscarTipoPublicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuarioHora">
+      <wsdl:input message="tns:AgregarUsuarioHoraSoapIn" />
+      <wsdl:output message="tns:AgregarUsuarioHoraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioHora">
+      <wsdl:input message="tns:BuscarUsuarioHoraSoapIn" />
+      <wsdl:output message="tns:BuscarUsuarioHoraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuarioHora">
+      <wsdl:input message="tns:EliminarUsuarioHoraSoapIn" />
+      <wsdl:output message="tns:EliminarUsuarioHoraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="devuelveUsuarioHoraSP">
+      <wsdl:input message="tns:devuelveUsuarioHoraSPSoapIn" />
+      <wsdl:output message="tns:devuelveUsuarioHoraSPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuariosHoras">
+      <wsdl:input message="tns:UsuariosHorasSoapIn" />
+      <wsdl:output message="tns:UsuariosHorasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="comprobarExistencia">
+      <wsdl:input message="tns:comprobarExistenciaSoapIn" />
+      <wsdl:output message="tns:comprobarExistenciaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioBo">
+      <soap:operation soapAction="http://tempuri.org/UsuarioBo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublicacionBo">
+      <soap:operation soapAction="http://tempuri.org/PublicacionBo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioBo">
+      <soap:operation soapAction="http://tempuri.org/TipoUsuarioBo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SitioBo">
+      <soap:operation soapAction="http://tempuri.org/SitioBo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActividadBo">
+      <soap:operation soapAction="http://tempuri.org/ActividadBo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HorarioBo">
+      <soap:operation soapAction="http://tempuri.org/HorarioBo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuarioHoraBo">
+      <soap:operation soapAction="http://tempuri.org/usuarioHoraBo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActividadHoraBo">
+      <soap:operation soapAction="http://tempuri.org/ActividadHoraBo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoPublicacionBo">
+      <soap:operation soapAction="http://tempuri.org/TipoPublicacionBo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComentarioBO">
+      <soap:operation soapAction="http://tempuri.org/ComentarioBO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarComentario">
+      <soap:operation soapAction="http://tempuri.org/AgregarComentario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevuelveComentarios">
+      <soap:operation soapAction="http://tempuri.org/DevuelveComentarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrocomentario">
+      <soap:operation soapAction="http://tempuri.org/filtrocomentario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarCodTipoSitio">
+      <soap:operation soapAction="http://tempuri.org/cargarCodTipoSitio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jsonpublicaciones">
+      <soap:operation soapAction="http://tempuri.org/jsonpublicaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jsonAviso">
+      <soap:operation soapAction="http://tempuri.org/jsonAviso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jsonPublicidad">
+      <soap:operation soapAction="http://tempuri.org/jsonPublicidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jsonReporte">
+      <soap:operation soapAction="http://tempuri.org/jsonReporte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="imagenes">
+      <soap:operation soapAction="http://tempuri.org/imagenes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Videos">
+      <soap:operation soapAction="http://tempuri.org/Videos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActividadUsuarioBO">
+      <soap:operation soapAction="http://tempuri.org/ActividadUsuarioBO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsistenciaActividades">
+      <soap:operation soapAction="http://tempuri.org/AsistenciaActividades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarCA">
+      <soap:operation soapAction="http://tempuri.org/cargarCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarActividadUsuario">
+      <soap:operation soapAction="http://tempuri.org/ModificarActividadUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividadUsuario">
+      <soap:operation soapAction="http://tempuri.org/AgregarActividadUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprobarExistActividad">
+      <soap:operation soapAction="http://tempuri.org/ComprobarExistActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuario">
+      <soap:operation soapAction="http://tempuri.org/AgregarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <soap:operation soapAction="http://tempuri.org/modificarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios">
+      <soap:operation soapAction="http://tempuri.org/Usuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuario">
+      <soap:operation soapAction="http://tempuri.org/BuscarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CodigoTipoUsuario">
+      <soap:operation soapAction="http://tempuri.org/CodigoTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ValidarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VistaReporteUser">
+      <soap:operation soapAction="http://tempuri.org/VistaReporteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTipoUsuario">
+      <soap:operation soapAction="http://tempuri.org/AgregarTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTipoUsuario">
+      <soap:operation soapAction="http://tempuri.org/EliminarTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarTipoUsuario">
+      <soap:operation soapAction="http://tempuri.org/modificarTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NomTipoUsuario">
+      <soap:operation soapAction="http://tempuri.org/NomTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposUsuarios">
+      <soap:operation soapAction="http://tempuri.org/TiposUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposUsuariosAdmin">
+      <soap:operation soapAction="http://tempuri.org/TiposUsuariosAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTipoUsuario">
+      <soap:operation soapAction="http://tempuri.org/BuscarTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividad">
+      <soap:operation soapAction="http://tempuri.org/AgregarActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TopActividades">
+      <soap:operation soapAction="http://tempuri.org/TopActividades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarActividad">
+      <soap:operation soapAction="http://tempuri.org/EliminarActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarActividad">
+      <soap:operation soapAction="http://tempuri.org/modificarActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actividades">
+      <soap:operation soapAction="http://tempuri.org/Actividades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarActividad">
+      <soap:operation soapAction="http://tempuri.org/BuscarActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividadHora">
+      <soap:operation soapAction="http://tempuri.org/AgregarActividadHora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarActividadHora">
+      <soap:operation soapAction="http://tempuri.org/EliminarActividadHora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarHorario">
+      <soap:operation soapAction="http://tempuri.org/AgregarHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarHorario">
+      <soap:operation soapAction="http://tempuri.org/EliminarHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarHorario">
+      <soap:operation soapAction="http://tempuri.org/modificarHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposHorario">
+      <soap:operation soapAction="http://tempuri.org/TiposHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarHorario">
+      <soap:operation soapAction="http://tempuri.org/BuscarHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPublicacion">
+      <soap:operation soapAction="http://tempuri.org/AgregarPublicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TopPublicaciones">
+      <soap:operation soapAction="http://tempuri.org/TopPublicaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TopPublicaciones2">
+      <soap:operation soapAction="http://tempuri.org/TopPublicaciones2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPublicacion">
+      <soap:operation soapAction="http://tempuri.org/EliminarPublicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarPublicacion">
+      <soap:operation soapAction="http://tempuri.org/modificarPublicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPublicaciones">
+      <soap:operation soapAction="http://tempuri.org/BuscarPublicaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarSitio">
+      <soap:operation soapAction="http://tempuri.org/AgregarSitio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarSitio">
+      <soap:operation soapAction="http://tempuri.org/EliminarSitio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarSitio">
+      <soap:operation soapAction="http://tempuri.org/modificarSitio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHora">
+      <soap:operation soapAction="http://tempuri.org/GetHora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTipoSitios">
+      <soap:operation soapAction="http://tempuri.org/GetTipoSitios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sitios">
+      <soap:operation soapAction="http://tempuri.org/Sitios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarSitio">
+      <soap:operation soapAction="http://tempuri.org/BuscarSitio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTipoPublicacion">
+      <soap:operation soapAction="http://tempuri.org/AgregarTipoPublicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTipoPublicacion">
+      <soap:operation soapAction="http://tempuri.org/EliminarTipoPublicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarTipoPublicacion">
+      <soap:operation soapAction="http://tempuri.org/modificarTipoPublicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposPublicaciones">
+      <soap:operation soapAction="http://tempuri.org/TiposPublicaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTipoPublicacion">
+      <soap:operation soapAction="http://tempuri.org/BuscarTipoPublicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuarioHora">
+      <soap:operation soapAction="http://tempuri.org/AgregarUsuarioHora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioHora">
+      <soap:operation soapAction="http://tempuri.org/BuscarUsuarioHora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuarioHora">
+      <soap:operation soapAction="http://tempuri.org/EliminarUsuarioHora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="devuelveUsuarioHoraSP">
+      <soap:operation soapAction="http://tempuri.org/devuelveUsuarioHoraSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuariosHoras">
+      <soap:operation soapAction="http://tempuri.org/UsuariosHoras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="comprobarExistencia">
+      <soap:operation soapAction="http://tempuri.org/comprobarExistencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioBo">
+      <soap12:operation soapAction="http://tempuri.org/UsuarioBo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublicacionBo">
+      <soap12:operation soapAction="http://tempuri.org/PublicacionBo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioBo">
+      <soap12:operation soapAction="http://tempuri.org/TipoUsuarioBo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SitioBo">
+      <soap12:operation soapAction="http://tempuri.org/SitioBo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActividadBo">
+      <soap12:operation soapAction="http://tempuri.org/ActividadBo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HorarioBo">
+      <soap12:operation soapAction="http://tempuri.org/HorarioBo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuarioHoraBo">
+      <soap12:operation soapAction="http://tempuri.org/usuarioHoraBo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActividadHoraBo">
+      <soap12:operation soapAction="http://tempuri.org/ActividadHoraBo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoPublicacionBo">
+      <soap12:operation soapAction="http://tempuri.org/TipoPublicacionBo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComentarioBO">
+      <soap12:operation soapAction="http://tempuri.org/ComentarioBO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarComentario">
+      <soap12:operation soapAction="http://tempuri.org/AgregarComentario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevuelveComentarios">
+      <soap12:operation soapAction="http://tempuri.org/DevuelveComentarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrocomentario">
+      <soap12:operation soapAction="http://tempuri.org/filtrocomentario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarCodTipoSitio">
+      <soap12:operation soapAction="http://tempuri.org/cargarCodTipoSitio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jsonpublicaciones">
+      <soap12:operation soapAction="http://tempuri.org/jsonpublicaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jsonAviso">
+      <soap12:operation soapAction="http://tempuri.org/jsonAviso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jsonPublicidad">
+      <soap12:operation soapAction="http://tempuri.org/jsonPublicidad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jsonReporte">
+      <soap12:operation soapAction="http://tempuri.org/jsonReporte" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="imagenes">
+      <soap12:operation soapAction="http://tempuri.org/imagenes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Videos">
+      <soap12:operation soapAction="http://tempuri.org/Videos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActividadUsuarioBO">
+      <soap12:operation soapAction="http://tempuri.org/ActividadUsuarioBO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsistenciaActividades">
+      <soap12:operation soapAction="http://tempuri.org/AsistenciaActividades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarCA">
+      <soap12:operation soapAction="http://tempuri.org/cargarCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarActividadUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ModificarActividadUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividadUsuario">
+      <soap12:operation soapAction="http://tempuri.org/AgregarActividadUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprobarExistActividad">
+      <soap12:operation soapAction="http://tempuri.org/ComprobarExistActividad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/AgregarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/modificarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios">
+      <soap12:operation soapAction="http://tempuri.org/Usuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/BuscarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CodigoTipoUsuario">
+      <soap12:operation soapAction="http://tempuri.org/CodigoTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ValidarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VistaReporteUser">
+      <soap12:operation soapAction="http://tempuri.org/VistaReporteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTipoUsuario">
+      <soap12:operation soapAction="http://tempuri.org/AgregarTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTipoUsuario">
+      <soap12:operation soapAction="http://tempuri.org/EliminarTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarTipoUsuario">
+      <soap12:operation soapAction="http://tempuri.org/modificarTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NomTipoUsuario">
+      <soap12:operation soapAction="http://tempuri.org/NomTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposUsuarios">
+      <soap12:operation soapAction="http://tempuri.org/TiposUsuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposUsuariosAdmin">
+      <soap12:operation soapAction="http://tempuri.org/TiposUsuariosAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTipoUsuario">
+      <soap12:operation soapAction="http://tempuri.org/BuscarTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividad">
+      <soap12:operation soapAction="http://tempuri.org/AgregarActividad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TopActividades">
+      <soap12:operation soapAction="http://tempuri.org/TopActividades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarActividad">
+      <soap12:operation soapAction="http://tempuri.org/EliminarActividad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarActividad">
+      <soap12:operation soapAction="http://tempuri.org/modificarActividad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actividades">
+      <soap12:operation soapAction="http://tempuri.org/Actividades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarActividad">
+      <soap12:operation soapAction="http://tempuri.org/BuscarActividad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividadHora">
+      <soap12:operation soapAction="http://tempuri.org/AgregarActividadHora" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarActividadHora">
+      <soap12:operation soapAction="http://tempuri.org/EliminarActividadHora" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarHorario">
+      <soap12:operation soapAction="http://tempuri.org/AgregarHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarHorario">
+      <soap12:operation soapAction="http://tempuri.org/EliminarHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarHorario">
+      <soap12:operation soapAction="http://tempuri.org/modificarHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposHorario">
+      <soap12:operation soapAction="http://tempuri.org/TiposHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarHorario">
+      <soap12:operation soapAction="http://tempuri.org/BuscarHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPublicacion">
+      <soap12:operation soapAction="http://tempuri.org/AgregarPublicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TopPublicaciones">
+      <soap12:operation soapAction="http://tempuri.org/TopPublicaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TopPublicaciones2">
+      <soap12:operation soapAction="http://tempuri.org/TopPublicaciones2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPublicacion">
+      <soap12:operation soapAction="http://tempuri.org/EliminarPublicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarPublicacion">
+      <soap12:operation soapAction="http://tempuri.org/modificarPublicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPublicaciones">
+      <soap12:operation soapAction="http://tempuri.org/BuscarPublicaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarSitio">
+      <soap12:operation soapAction="http://tempuri.org/AgregarSitio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarSitio">
+      <soap12:operation soapAction="http://tempuri.org/EliminarSitio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarSitio">
+      <soap12:operation soapAction="http://tempuri.org/modificarSitio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHora">
+      <soap12:operation soapAction="http://tempuri.org/GetHora" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTipoSitios">
+      <soap12:operation soapAction="http://tempuri.org/GetTipoSitios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sitios">
+      <soap12:operation soapAction="http://tempuri.org/Sitios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarSitio">
+      <soap12:operation soapAction="http://tempuri.org/BuscarSitio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTipoPublicacion">
+      <soap12:operation soapAction="http://tempuri.org/AgregarTipoPublicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTipoPublicacion">
+      <soap12:operation soapAction="http://tempuri.org/EliminarTipoPublicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarTipoPublicacion">
+      <soap12:operation soapAction="http://tempuri.org/modificarTipoPublicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposPublicaciones">
+      <soap12:operation soapAction="http://tempuri.org/TiposPublicaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTipoPublicacion">
+      <soap12:operation soapAction="http://tempuri.org/BuscarTipoPublicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuarioHora">
+      <soap12:operation soapAction="http://tempuri.org/AgregarUsuarioHora" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioHora">
+      <soap12:operation soapAction="http://tempuri.org/BuscarUsuarioHora" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuarioHora">
+      <soap12:operation soapAction="http://tempuri.org/EliminarUsuarioHora" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="devuelveUsuarioHoraSP">
+      <soap12:operation soapAction="http://tempuri.org/devuelveUsuarioHoraSP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuariosHoras">
+      <soap12:operation soapAction="http://tempuri.org/UsuariosHoras" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="comprobarExistencia">
+      <soap12:operation soapAction="http://tempuri.org/comprobarExistencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://localhost:55422/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://localhost:55422/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

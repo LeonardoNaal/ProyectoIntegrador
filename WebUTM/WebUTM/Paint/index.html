@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Paint</title>
+<meta name="description" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
+<meta name="keywords" content="photo, image, picture, transparent, layers, free, edit, html5, canvas, javascript, online, photoshop, gimp, effects, sharpen, blur, magic wand tool, clone tool, rotate, resize, photoshop online, online tools, tilt shift, sprites, keypoints" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="../Paint/styles/styles.css" />
+<link rel="shortcut icon" href="../Paint/img/favicon.png" />
+<!-- Google -->
+<meta itemprop="name" content="miniPaint" />
+<meta itemprop="description" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
+<meta itemprop="image" content="http://viliusle.github.io/miniPaint/img/preview.jpg" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="miniPaint" />
+<meta name="twitter:description" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
+<meta name="twitter:image" content="http://viliusle.github.io/miniPaint/img/preview.jpg" />
+<meta name="twitter:image:alt" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
+<!-- Facebook, Pinterest -->
+<meta property="og:title" content="miniPaint" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://viliusle.github.io/miniPaint/" />
+<meta property="og:image" content="http://viliusle.github.io/miniPaint/img/preview.jpg" />
+<meta property="og:description" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
+<meta property="og:site_name" content="miniPaint" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="sidebar_left">
+		<a id="logo" href="">miniPaint</a>
+		<div id="menu_left_container">
+			<noscript>
+				Select object tool, Select area tool, Magic Wand Tool, 
+				Erase, Fill, Pick Color, Pencil, Draw line, Draw letters, 
+				Draw rectangle, Draw circle, Brush, Blur tool, Sharpen tool, 
+				Clone tool, Gradient
+			</noscript>
+		</div>
+		<div style="clear:both;"></div>
+		<div id="main_color_container">
+			<input type="color" id="main_color" value="#0000ff" onchange="GUI.set_color(this);" />
+			<div style="display:none;" id="main_color_alt" onclick="GUI.toggle_color_select();"></div>
+		</div>
+		<div class="block" id="all_colors"></div>
+		<div class="block">
+			<input type="text" id="color_hex" value="#000000" /><br />
+			<div id="main_color_rgb">
+				<a class="red" href="#" title="Red" onclick="return false;">Red</a>
+				<input id="rgb_r" onKeyUp="GUI.set_color_rgb(this, 'r')" onchange="GUI.set_color_rgb(this, 'r')" type="number" value="255" />
+				<br />				
+				<a class="green" href="#" title="Green" onclick="return false;">Green</a>
+				<input id="rgb_g" onKeyUp="GUI.set_color_rgb(this, 'g')" onchange="GUI.set_color_rgb(this, 'g')" type="number" value="255" />
+				<br />
+				<a class="blue" href="#" title="Blue" onclick="return false;">Blue</a>
+				<input id="rgb_b" onKeyUp="GUI.set_color_rgb(this, 'b')" onchange="GUI.set_color_rgb(this, 'b')" type="number" value="255" />
+				<br />
+				<a class="alpha" href="#" title="Alpha" onclick="return false;">Alpha</a>
+				<input id="rgb_a" onKeyUp="GUI.set_color_rgb(this, 'a')" onchange="GUI.set_color_rgb(this, 'a')" type="number" value="255" />
+				<br />
+			</div>
+		</div>
+		<div class="block" id="mouse_info">
+			<span class="trn mouse_info_title">Tamaño:</span>
+			<span id="mouse_info_size"></span><br />
+			
+			<span style="font-size:10px;" class="trn mouse_info_title">Mouse:</span>
+			<span id="mouse_info_mouse"></span><br />
+			
+			<div style="display:none;" id="mouse_info_selected">
+				<br />
+				<span class="mouse_info_title">XY:</span>
+				<span id="mouse_info_xy"></span><br />
+
+				<span class="trn mouse_info_title">Área:</span>
+				<span id="mouse_info_area"></span><br />
+			</div>
+		</div>
+		<div class="block" id="action_attributes"></div>
+	</div>
+	<div id="canvas_wrapper">
+		<canvas id="canvas_back"><div class="trn error">Your browser doesn't support canvas.</div></canvas>
+		<div id="canvas_more"></div>
+		<canvas id="canvas_front"></canvas>
+		<canvas id="canvas_grid"></canvas>
+
+		<div id="resize-w"></div>
+		<div id="resize-h"></div>
+		<div id="resize-wh"></div>
+	</div>
+	<div id="sidebar_right">
+		<div id="preview">
+			<canvas id="canvas_preview"></canvas>
+			<div style="margin-top:105px;padding-left:5px;">
+				<input title="Zoom out" onclick="GUI.zoom(-1, true);" style="width:25px;" class="layer_add" type="button" value="-" />
+				<input title="Reset zoom level" onclick="GUI.zoom(100, true);" class="layer_add" id="zoom_nr" type="button" value="100%" />
+				<input title="Zoom in" onclick="GUI.zoom(+1, true);" style="width:25px;" class="layer_add" type="button" value="+" />
+				<input title="Fit" onclick="GUI.zoom_auto();" class="layer_add" type="button" value="Fit" />
+
+				<input style="width:95%;margin-top:5px;" id="zoom_range" type="range" value="100" min="50" max="1000" step="50" oninput="GUI.zoom(this.value, true);" /> 
+			</div>
+		</div>
+		<div id="layers_base">
+			<b class="trn">Capas</b> <a title="Add new layer" class="layer_add" onclick="EDIT.save_state();LAYER.layer_add();return false;" href="#">+</a>
+			<a title="Move down" onclick="EDIT.save_state();LAYER.move_layer('down');return false;" class="layers_arrow" href="#">&darr;</a>
+			<a title="Move up" onclick="EDIT.save_state();LAYER.move_layer('up');return false;" class="layers_arrow" href="#">&uarr;</a>
+			<div style="margin-top:5px;" id="layers"></div>
+		</div>
+	</div>
+</div>
+<div id="mobile_menu">
+	<a class="left_mobile_menu" onclick="GUI.toggle('#sidebar_left');return false;" href="#"></a>
+	<a class="right_mobile_menu" onclick="GUI.toggle('#sidebar_right');return false;" href="#"></a>
+</div>
+<div id="main_menu" class="ddsmoothmenu">
+	<ul>
+	<li>
+		<a class="icon file trn" href="#">Archivo</a>
+		<ul>
+			<li><a class="trn" onclick="call_menu(FILE, 'file_new');" href="#">Nuevo</a></li>
+			<li><a class="trn dots" onclick="call_menu(FILE, 'file_open');" href="#">Abrir</a></li>
+			<li><a class="trn dots" onclick="call_menu(FILE, 'file_save');" href="#">Guardar como</a></li>
+			<li><a class="trn dots" onclick="call_menu(FILE, 'file_print');" href="#">Imprimir</a></li>
+			<li><div class="mid-line"></div></li>
+			<li><a class="trn dots" onclick="call_menu(FILE, 'file_quicksave');" href="#">Guardar rápido</a></li>
+			<li><a class="trn dots" onclick="call_menu(FILE, 'file_quickload');" href="#">Cargar rápido</a></li>
+		</ul>
+	</li>
+	<li>
+		<a class="icon edit trn" href="#">Editar</a>
+		<ul>
+			<li><a class="trn" onclick="call_menu(EDIT, 'edit_undo');" href="#">Deshacer</a></li>
+			<li><div class="mid-line"></div></li>
+			<li><a class="trn" onclick="call_menu(EDIT, 'edit_cut');" href="#">Cortar selección</a></li>
+			<li><a class="trn" onclick="call_menu(EDIT, 'edit_copy');" href="#">Copiar selección</a></li>
+			<li><a class="trn" onclick="call_menu(EDIT, 'edit_paste');" href="#">Pegar selección</a></li>
+			<li><div class="mid-line"></div></li>
+			<li><a class="trn" onclick="call_menu(EDIT, 'edit_select');" href="#">Seleccionar todo</a></li>
+			<li><a class="trn" onclick="call_menu(EDIT, 'edit_clear');" href="#">Limpiar selección</a></li>
+		</ul>
+	</li>
+	<li>
+		<a class="icon image trn" href="#">Imagen</a>
+		<ul>
+			<li><a class="trn dots" onclick="call_menu(IMAGE, 'image_information');" href="#">Información</a></li>
+			<li><a class="trn dots" onclick="call_menu(IMAGE, 'image_size');" href="#">Tamaño</a></li>
+			<li><a class="trn" onclick="call_menu(IMAGE, 'image_trim');" href="#">Recortar</a>
+			<li><a class="trn" onclick="call_menu(IMAGE, 'image_crop');" href="#">Recortar selección</a>
+			<li class="more">
+				<a class="trn" href="#">Zoom</a>
+				<ul>
+					<li><a class="trn" onclick="call_menu(IMAGE, 'zoom_in');" href="#">Zoom In</a></li>
+					<li><a class="trn" onclick="call_menu(IMAGE, 'zoom_out');" href="#">Zoom Out</a></li>
+					<li><div class="mid-line"></div></li>
+					<li><a class="trn" onclick="call_menu(IMAGE, 'zoom_original');" href="#">Tamaño original</a></li>
+					<li><a class="trn" onclick="call_menu(IMAGE, 'zoom_auto');" href="#">Ajustar ventana</a></li>
+				</ul>
+			</li>
+			<li><div class="mid-line"></div></li>
+			<li><a class="trn dots" onclick="call_menu(IMAGE, 'image_resize');" href="#">Restaurar tamaño</a></li>
+			<li class="more">
+				<a class="trn" href="#">Rotar</a>
+				<ul>
+					<li><a class="trn" onclick="call_menu(IMAGE, 'image_rotate_left');" href="#">Izquierda</a></li>
+					<li><a class="trn" onclick="call_menu(IMAGE, 'image_rotate_right');" href="#">Derecha</a></li>
+					<li><a class="trn dots" onclick="call_menu(IMAGE, 'image_rotate');" href="#">Rotación</a></li>
+				</ul>
+			</li>
+			<li class="more">
+				<a class="trn" href="#">Orientación</a>
+				<ul>
+					<li><a class="trn" onclick="call_menu(IMAGE, 'image_vflip');" href="#">Vertical</a></li>
+					<li><a class="trn" onclick="call_menu(IMAGE, 'image_hflip');" href="#">Horizontal</a></li>
+				</ul>
+			</li>
+			<li><div class="mid-line"></div></li>
+			<li><a class="trn dots" onclick="call_menu(IMAGE, 'image_colors');" href="#">Correciones de color</a></li>
+			<li><a class="trn" onclick="call_menu(IMAGE, 'image_auto_adjust');" href="#">Auto ajuste de color</a></li>
+			<li><a class="trn" onclick="call_menu(IMAGE, 'image_GrayScale');" href="#">Escala de grises</a>
+			<li><a class="trn dots" onclick="call_menu(IMAGE, 'image_decrease_colors');" href="#">Decrementar profundidad de color</a></li>
+			<li><a class="trn" onclick="call_menu(IMAGE, 'image_negative');" href="#">Negativo</a></li>
+			<li><a class="trn dots" onclick="call_menu(IMAGE, 'image_grid');" href="#">Cuadrícula</a></li>
+			<li><div class="mid-line"></div></li>
+			<li><a class="trn dots" onclick="call_menu(IMAGE, 'image_histogram');" href="#">Histograma</a></li>
+		</ul>
+	</li>
+	<li>
+		<a class="icon layer trn" href="#">Capa</a>
+		<ul>
+			<li><a class="trn" onclick="call_menu(LAYER, 'layer_new');" href="#">Nuevo</a></li>
+			<li><a class="trn" onclick="call_menu(LAYER, 'layer_duplicate');" href="#">Duplicar</a></li>
+			<li><a class="trn" onclick="call_menu(LAYER, 'layer_show_hide');" href="#">Mostrar / Esconder</a></li>
+			<li><a class="trn" onclick="call_menu(LAYER, 'layer_crop');" href="#">Cortar Selección</a>
+			<li><a class="trn" onclick="call_menu(LAYER, 'layer_delete');" href="#">Eliminar</a></li>
+			<li><div class="mid-line"></div></li>
+			<li class="more">
+				<a class="trn" href="#">Mover</a>
+				<ul>
+					<li><a class="trn" onclick="call_menu(LAYER, 'layer_move_up');" href="#">Arriba</a></li>
+					<li><a class="trn" onclick="call_menu(LAYER, 'layer_move_down');" href="#">Abajo</a></li>
+				</ul>
+			</li>
+			<li><a class="trn dots" onclick="call_menu(LAYER, 'layer_opacity');" href="#">Opacidad</a></li>
+			<li><a class="trn dots" onclick="call_menu(LAYER, 'layer_rename');" href="#">Renombrar</a></li>
+			<li><div class="mid-line"></div></li>
+			<li><a class="trn" onclick="call_menu(LAYER, 'layer_trim');" href="#">Recortar</a></li>
+			<li><a class="trn dots" onclick="call_menu(LAYER, 'layer_resize');" href="#">Cambiar tamaño</a></li>
+			<li><a class="trn" onclick="call_menu(LAYER, 'layer_clear');" href="#">Limpiar</a></li>
+			<li><div class="mid-line"></div></li>
+			<li><a class="trn" onclick="call_menu(LAYER, 'layer_differences');" href="#">Diferencias abajo</a></li>
+			<li><a class="trn dots" onclick="call_menu(LAYER, 'layer_merge_down');" href="#">Fusionar</a></li>
+			<li><a class="trn" onclick="call_menu(LAYER, 'layer_flatten');" href="#">Aplanar imagen</a></li>
+		</ul>
+	</li>
+	<li>
+		<a class="icon effects trn" href="#">Efectos</a>
+		<ul id="effects_list">
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_bw');" href="#">Blanco y negro</a>
+			<li class="more">
+				<a class="trn" href="#">Desenfoque</a>
+				<ul>
+					<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_BoxBlur');" href="#">Cuadro de desenfoque</a>
+					<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_GaussianBlur');" href="#">Desenfoque Gaussiano</a>
+					<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_StackBlur');" href="#">Pila de desenfoque</a>
+					<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_zoomblur');" href="#">Zoom de desenfoque</a>
+				</ul>
+			</li>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_bulge_pinch');" href="#">Bulto/Pellizco</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_colorize');" href="#">Colorizar</a></li>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_denoise');" href="#">Destruir</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Desaturate');" href="#">Desaturar</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Dither');" href="#">Vacias</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_dot_screen');" href="#">Pantalla de puntos</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Edge');" href="#">Borde</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Emboss');" href="#">Realzar</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Enrich');" href="#">Enriquecer</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Grains');" href="#">Granos</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_heatmap');" href="#">Mapa de calor</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_jpg_vintage');" href="#">Compresión JPG</a></li>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Mosaic');" href="#">Mosaico</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Oil');" href="#">Aceite</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_perspective');" href="#">Perspectiva</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Sepia');" href="#">Sepia</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Sharpen');" href="#">Afilar</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_Solarize');" href="#">Solarizar</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_tilt_shift');" href="#">Inclinación</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_vignette');" href="#">Viñeta</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_vibrance');" href="#">Vibración</a>
+			<li><a class="trn dots" onclick="call_menu(EFFECTS, 'effects_vintage');" href="#">Vintage</a>
+		</ul>
+	</li>
+	<li>
+		<a class="icon tools trn" href="#">Herramientas</a>
+		<ul>
+			<li><a class="trn dots" onclick="call_menu(TOOLS, 'tools_borders');" href="#">Bordes</a></li>
+			<li><a class="trn" onclick="call_menu(TOOLS, 'tools_sprites');" href="#">Sprites</a></li>
+			<li><a class="trn" onclick="call_menu(TOOLS, 'tools_keypoints');" href="#">Puntos clave</a></li>
+			<li><a class="trn dots" onclick="call_menu(TOOLS, 'tools_color2alpha');" href="#">Color a Alpha</a></li>
+			<li><a class="trn dots" onclick="call_menu(TOOLS, 'tools_color_zoom');" href="#">Color Zoom</a></li>
+			<li><a class="trn dots" onclick="call_menu(TOOLS, 'tools_replace_color');" href="#">Reemplazar Color</a></li>
+			<li><a class="trn dots" onclick="call_menu(TOOLS, 'tools_restore_alpha');" href="#">Restaurar alpha</a></li>
+
+		</ul>
+	</li>
+	<li>
+		<a class="icon help trn" href="#">Ayuda</a>
+		<ul>
+			<li><a class="trn dots" onclick="call_menu(HELP, 'help_shortcuts');" href="#">Atajos de teclado</a></li>
+			<li class="more">
+				<a class="trn" href="#">Lenguaje</a>
+				<ul>
+					<li><a onclick="call_menu(HELP, 'help_translate', 'en');" href="#">Inglés</a>
+					<li><div class="mid-line"></div></li>
+					<li><a onclick="call_menu(HELP, 'help_translate', 'zh');" href="#">简体中文）</a>
+					<li><a onclick="call_menu(HELP, 'help_translate', 'es');" href="#">Español</a>
+					<li><a onclick="call_menu(HELP, 'help_translate', 'fr');" href="#">French</a>	
+					<li><a onclick="call_menu(HELP, 'help_translate', 'de');" href="#">German</a>	
+					<li><a onclick="call_menu(HELP, 'help_translate', 'it');" href="#">Italiano</a>
+					<li><a onclick="call_menu(HELP, 'help_translate', 'ja');" href="#">Japanese</a>
+					<li><a onclick="call_menu(HELP, 'help_translate', 'ko');" href="#">Korean</a>		
+					<li><a onclick="call_menu(HELP, 'help_translate', 'lt');" href="#">Lietuvių</a>
+					<li><a onclick="call_menu(HELP, 'help_translate', 'pt');" href="#">Portuguese</a>	
+					<li><a onclick="call_menu(HELP, 'help_translate', 'ru');" href="#">Russian</a>	
+					<li><a onclick="call_menu(HELP, 'help_translate', 'tr');" href="#">Turkish</a>	
+				</ul>
+			</li>
+			<li><div class="mid-line"></div></li>
+			<li><a class="trn dots" onclick="call_menu(HELP, 'help_about');" href="#">Acerca de</a></li>
+		</ul>
+	</li>
+	</ul>
+</div>
+<div style="display:none;" id="tmp"></div>
+<div id="popup"></div>
+
+<script src="../Paint/vendor/jquery/jquery.js"></script>
+<script src="../Paint/vendor/jquery/jquery-migrate.js"></script>
+<script src="../Paint/vendor/menu/menu.min.js"></script>
+<script src="../Paint/vendor/imagefilters/imagefilters.min.js"></script>
+<script src="../Paint/vendor/glfx/glfx.js"></script>
+<script src="../Paint/vendor/exif/exif.min.js"></script>
+<script src="../Paint/vendor/harmony/harmony.min.js"></script>
+<script src="../Paint/libs/vintage.js"></script>
+<script src="../Paint/libs/sift.js"></script>
+<script src="../Paint/js/elements.js"></script>
+<script src="../Paint/libs/helpers.js"></script>
+<script src="../Paint/libs/popup.js"></script>
+<script src="../Paint/vendor/file-saver/canvas-toBlob.js"></script>
+<script src="../Paint/vendor/file-saver/FileSaver.min.js"></script>
+<script src="../Paint/vendor/hqx/hqx.min.js"></script>
+<script src="../Paint/vendor/translate/jquery.translate.min.js"></script>
+<script src="../Paint/vendor/hermite-resize/hermite.js"></script>
+
+<script src="../Paint/languages/de.js"></script>
+<script src="../Paint/languages/es.js"></script>
+<script src="../Paint/languages/fr.js"></script>
+<script src="../Paint/languages/it.js"></script>
+<script src="../Paint/languages/ja.js"></script>
+<script src="../Paint/languages/ko.js"></script>
+<script src="../Paint/languages/lt.js"></script>
+<script src="../Paint/languages/pt.js"></script>
+<script src="../Paint/languages/ru.js"></script>
+<script src="../Paint/languages/tr.js"></script>
+<script src="../Paint/languages/zh.js"></script>
+
+<script src="../Paint/js/events.js"></script>
+<script src="../Paint/js/file.js"></script>
+<script src="../Paint/js/edit.js"></script>
+<script src="../Paint/js/image.js"></script>
+<script src="../Paint/js/layers.js"></script>
+<script src="../Paint/js/effects.js"></script>
+<script src="../Paint/js/tools.js"></script>
+<script src="../Paint/js/draw_tools.js"></script>
+<script src="../Paint/js/gui.js"></script>
+<script src="../Paint/js/help.js"></script>
+
+<script src="../Paint/config.js"></script>
+<script src="../Paint/js/main.js"></script>
+</body>
+</html>

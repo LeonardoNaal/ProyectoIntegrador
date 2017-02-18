@@ -1,0 +1,217 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="WebUTM.master.cs" Inherits="WebUTM.MasterPage.WebUTM" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Universidad Tecnológica Metropolitana</title>
+    <link rel="stylesheet" type="text/css" href="../engine1/style.css" />
+	<script type="text/javascript" src="../engine1/jquery.js"></script>
+    <link href="../themes/2/js-image-slider.css" rel="stylesheet" />
+    <script src="../themes/2/js-image-slider.js"></script>
+    <link href="../generic.css" rel="stylesheet" />
+     <link href="../5/tooltip.css" rel="stylesheet" />
+    <script src="../5/tooltip.js"></script>
+    <link href="../5/thumbnail-slider.css" rel="stylesheet" type="text/css" />
+    <script src="../5/thumbnail-slider.js" type="text/javascript"></script>
+    <style>
+        body {font: normal 0.9em Arial;color: #222;margin:0;}
+        header {display: block;font-size: 1.2em;margin-bottom:100px;}        
+        header a, header span {
+            display: inline-block;
+            padding: 4px 8px;
+            margin-right: 10px;
+            border: 2px solid #000;
+            background: #DDD;
+            color: #000;
+            text-decoration: none;
+            text-align: center;
+            height: 20px;
+        }
+        header span {background:white;}
+        a {color: #1155CC;}
+    </style>
+    <link href="../Recursos/Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../Recursos/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Recursos/Bootstrap/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../Recursos/MisEstilos/MisEstilos.css" rel="stylesheet" />
+    <link href="../Recursos/MisEstilos/Cover.css" rel="stylesheet" />
+    <link href="../Recursos/MisEstilos/mapa.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Recursos/Bootstrap/css/ken-burns.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../Recursos/Bootstrap/css/animate.min.css" type="text/css" media="all" />
+    <!--Estilos Material Design-->
+    <%-- <link href="../Recursos/Bootstrap/EstilosMaterial/css/bootstrap.min.css" rel="stylesheet" />--%>
+    <%--<link href="../Recursos/Bootstrap/EstilosMaterial/css/material-kit.css" rel="stylesheet" title="material"/>--%>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Studies Plus Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <%--<script src="/Recursos/Bootstrap/js/jquery.min.js"></script>
+    <script src="/Recursos/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Recursos/Bootstrap/js/scripts.js"></script>--%>
+    <!--webfonts-->
+    <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css' />
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <script src="../Recursos/Bootstrap/js/jquery.min.js"></script>
+    <script src="../Recursos/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Recursos/Bootstrap/js/scripts.js"></script>
+    <script type="text/javascript">
+    function openModal() {
+        $('#mymodal').modal('show');
+    }
+</script>
+    <script type="text/javascript">
+    function openModal2() {
+        $('#mymodal2').modal('show');
+    }
+</script>
+    
+	
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <!--header-->
+            <div class="header navbar-fixed-top">
+                <div class="container">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!---Brand and toggle get grouped for better mobile display--->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="navbar-brand">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div align="center">
+                                                <img src="../Recursos/Images/logo2.png" width="180" height="60"  />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <br />
+                                            <div align="center">
+<h2 class="mih2">    Social</h2>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <nav class="link-effect-2" id="link-effect-2">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="index.aspx"><span data-hover="Inicio">Inicio</span></a></li>
+                                        <li><a href="nosotros.aspx"><span data-hover="Nosotros">Nosotros</span></a></li>
+                                        <li><a href="publicaciones.aspx"><span data-hover="Publicaciones">Publicaciones</span></a></li>
+                                        <li><a href="Actividades.aspx"><span data-hover="Actividades">Actividades</span></a></li>
+                                        <li><a href="sitios.aspx"><span data-hover="Sitios">Sitios</span></a></li>
+                                        <%--<li><a href="courses.html"><span data-hover="Horarios">Horarios</span></a></li>--%>
+                                        <li><a href="iniciar.aspx"><span data-hover="Ingresar">Ingresar</span></a></li>
+                                        <li><a href="registro.aspx"><span data-hover="Registrarse">Registrarse</span></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!--header-->
+            <!-- banner -->
+            <asp:ContentPlaceHolder ID="banner" runat="server">
+            </asp:ContentPlaceHolder>
+            <!--banner-->
+            <!--contenido-->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!--contenido-->
+            <!--footer-->
+            <div class="footer-w3">
+                <div class="container">
+                    <div class="footer-grids">
+                        <div class="col-md-4 footer-grid">
+                            <h4>Acerca de nosotros</h4>
+                            <p>Somos una plataforma que unifica todos lo servicios que ofrece esta institución. <span>En este sitio encontrarás todo lo que busques en un mismo lugar, solamente tienes que navegar a las secciones que desees</span></p>
+                        </div>
+                        <div class="col-md-4 footer-grid">
+                            <h4>Fotos</h4>
+                            <div class="footer-grid1">
+                                <img src="../Recursos/Bootstrap/images/w1.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="footer-grid1">
+                                <img src="../Recursos/Bootstrap/images/w2.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="footer-grid1">
+                                <img src="../Recursos/Bootstrap/images/w4.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="footer-grid1">
+                                <img src="../Recursos/Bootstrap/images/w5.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="footer-grid1">
+                                <img src="../Recursos/Bootstrap/images/w6.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="footer-grid1">
+                                <img src="../Recursos/Bootstrap/images/w2.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-4 footer-grid">
+                            <h4>Información</h4>
+                            <ul>
+                                <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Calle 115 (Circuito Colonias Sur) No. 404 por Calle 50, Santa Rosa, 97279 Mérida, Yuc.</li>
+                                <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>01 999 940 6102</li>
+                                <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:example@mail.com">utmerida@gmail.com</a></li>
+                                <li><i class="glyphicon glyphicon-time" aria-hidden="true"></i>Lun-Sab 09:00 am a 16:00 pm</li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            <!---copy--->
+            <div class="copy-section">
+                <div class="container">
+                    <div class="social-icons">
+                        <a href="#"><i class="icon1"></i></a>
+                        <a href="#"><i class="icon2"></i></a>
+                        <a href="#"><i class="icon3"></i></a>
+                        <a href="#"><i class="icon4"></i></a>
+                    </div>
+                    <div class="copy">
+                        <p>&copy; 2016 Todos los derechos reservados | Design by WebUTM</p>
+                    </div>
+                </div>
+            </div>
+            <!---copy--->
+        </div>
+    </form>
+      <script>
+        //Note: this script should be placed at the bottom of the page, or after the slider markup. It cannot be placed in the head section of the page.
+        var slides = document.getElementById("thumbnail-slider").getElementsByTagName("li");
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].onmouseover = function (e) {
+                var li = this;
+                if (li.thumb) {
+                    var content = "<div class='tip-wrap' style='background-image:url(" + li.thumbSrc + ");'><div class='tip-text'>" + li.thumb.innerHTML + "</div></div>";
+                    tooltip.pop(li, content);
+                }
+            };
+        }
+    </script>
+     <script type="text/javascript" src="../engine1/wowslider.js"></script>
+	<script type="text/javascript" src="../engine1/script.js"></script>
+</body>
+</html>
