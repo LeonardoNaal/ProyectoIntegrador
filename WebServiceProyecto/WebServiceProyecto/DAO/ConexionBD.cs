@@ -44,7 +44,7 @@ namespace WebServiceProyecto.DAO
         public SqlConnection establecerConexion()
         {
             //string cs = "Data Source=.\\sqlexpress;Initial Catalog=TiendaEnLinea;Integrated Security=True";
-            string cs = "Data Source=.;Initial Catalog=BDUTM;Integrated Security=True";
+            string cs = "Data Source=DMAYCEN\\SQLEXPRESS;Initial Catalog=BDUTM;Integrated Security=True";
             con = new SqlConnection(cs);
             return con;
         }
