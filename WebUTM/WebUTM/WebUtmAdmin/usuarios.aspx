@@ -46,15 +46,16 @@
 
     <br />
     <div class="row">
-        <div class="col-md-12" align="center">
+        <div class="col-md-12" align="left">
             <ul class="breadcrumb">
+                <p class="mia2">Estás en:</p>
                 <li>
-                    <a href="index.aspx">
-                        Inicio
+                    <a href="index.aspx" class="mia2">
+                        <b>Inicio</b>
                     </a><span class="divider"></span>
                 </li>
-                <li class="active">
-                        Usuarios
+                <li class="active mili1">
+                        <b>Usuarios</b>
                 </li>
             </ul>
         </div>
@@ -81,58 +82,51 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-8 thumbnail">
+                <br />
                 <h3 class="text-center">Datos de los usuarios</h3>
                 <br />
+                <br />
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
                         <div align="center">
                             <p class="text-center"><b>Matrícula:</b></p>
                             <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
-                    </div>
-                    <div class="col-md-4">
+                        <br />
                         <div align="center">
                             <p class="text-center"><b>Nombre:</b></p>
                             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
-                    </div>
-                    <div class="col-md-4">
+                        <br />
                         <div align="center">
                             <p class="text-center"><b>Apellido Paterno:</b></p>
                             <asp:TextBox ID="txtApellidoPaterno" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-md-6">
+                        <br />
                         <div align="center">
                             <p><b>Apellido Materno:</b></p>
                             <asp:TextBox ID="txtApellidoMaterno" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5">
+                        <div align="center">
+                            <p><b>Escribe una contraseña:</b></p>
+                            <asp:TextBox ID="txtContraseña" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                        </div>
+                        <br />
+                        <div align="center">
+                            <p><b>Confirmar contraseña:</b></p>
+                            <asp:TextBox ID="txtContraseña2" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                        </div>
+                        <br />
                         <div align="center">
                             <p><b>Tipo de usuario:</b></p>
                             <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" Height="35px" Width="153px" AppendDataBoundItems="True">
                             </asp:DropDownList>
                         </div>
                     </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-md-6">
-                        <div align="center">
-                            <p><b>Escribe una contraseña:</b></p>
-                            <asp:TextBox ID="txtContraseña" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div align="center">
-                            <p><b>Confirmar contraseña:</b></p>
-                            <asp:TextBox ID="txtContraseña2" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                        </div>
-                    </div>
+                    <div class="col-md-1"></div>
                 </div>
                 <br />
                 <br />
