@@ -210,8 +210,6 @@ namespace WebUTM.WebUtmAdmin
                     objPublicaciones.Video = bytes;
                 }
             }
-            
-           
             if (FileUpload1.PostedFile.ContentLength != 0)
             {
                 System.Web.HttpPostedFile ImgFile = FileUpload1.PostedFile;
@@ -219,11 +217,6 @@ namespace WebUTM.WebUtmAdmin
                 Byte[] byteImage = new Byte[FileUpload1.PostedFile.ContentLength];
                 ImgFile.InputStream.Read(byteImage, 0, FileUpload1.PostedFile.ContentLength);
                 objPublicaciones.Imagen = byteImage;
-            }
-            else
-            {
-                image1.ImageUrl = "/Recursos/images/publicaciones.png";
-                //objPublicaciones.Imagen = ImagenABytes();
             }
             if (txtTitulo.Text.Trim().Length == 0)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
@@ -83,6 +84,12 @@ namespace WebServiceProyecto.DAO
                 SqlParameter imageParam = cmd.Parameters.Add("@image", System.Data.SqlDbType.Image);
                 imageParam.Value =data.Imagen;
             }
+            else
+            {
+                PictureBox pic = new PictureBox();
+                SqlParameter imageParam = cmd.Parameters.Add("@image", System.Data.SqlDbType.Image);
+                imageParam.Value = ImagenABytes(pic.Image = Image.FromFile("C:\\Users\\admin\\Documents\\Visual Studio 2015\\Projects\\WebServiceProyecto\\WebServiceProyecto\\publicaciones.png"));
+            }
             cmd.Parameters.AddWithValue("@Contenido", data.Contenido);
             if (data.Video != null)
             {
@@ -98,7 +105,15 @@ namespace WebServiceProyecto.DAO
             }
             return 1;
         }
-        
+
+        public static byte[] ImagenABytes(Image imagen)
+        {
+            MemoryStream ms = new MemoryStream();
+            imagen.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] arreglo = ms.ToArray();
+            return arreglo;
+        }
+
         public byte[] imagen(int cod)
         {
             DataSet ds = new DataSet();
