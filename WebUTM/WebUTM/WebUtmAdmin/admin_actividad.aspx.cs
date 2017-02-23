@@ -178,6 +178,7 @@ namespace WebUTM.WebUtmAdmin
             {
                 mensaje = mensaje + "Introduce la hora final \n";
             }
+           
             if (mensaje.Trim().Length == 0)
             {
                 act.CodUsuario = codUser;

@@ -53,6 +53,7 @@
                     </div>
                     <div class="col-md-4">
                         <p><b>Fecha de inicio:</b></p>
+                        <input id="txtFecha" type="date"/>
                         <asp:TextBox ID="txtFecha1" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div class="col-md-4">

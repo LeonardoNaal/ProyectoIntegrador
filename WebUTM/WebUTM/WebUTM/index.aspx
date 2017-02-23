@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="banner" runat="server">
     <div class="banner">
         <div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
-
             <!-- wraper para el slider -->
             <div class="carousel-inner" role="listbox">
 

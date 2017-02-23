@@ -10,15 +10,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <div class="row">
-        <div class="col-md-12" align="center">
-            <ul class="breadcrumb">
-                <li>
-                    <a href="index.aspx">Inicio
-                    </a><span class="divider"></span>
-                </li>
-                <li class="active">Registrarse
-                </li>
-            </ul>
+        <div class="container">
+            <br />
+        <h4>Estás en:</h4>
+            <br />
+        <div class="btn-group btn-breadcrumb">
+            <a href="index.aspx" class="btn btn-primary"><i class="glyphicon glyphicon-home"></i></a>
+            <a href="#" class="btn btn-primary">Registrarse</a>
+        </div>
         </div>
     </div>
     <br />

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
-using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
 using WebServiceProyecto.BO;
+using System.Windows.Forms;
 using System.Drawing;
 namespace WebServiceProyecto.DAO
 {
@@ -67,6 +67,67 @@ namespace WebServiceProyecto.DAO
             return json;
         }
 
+        public string jsonPublicidad()
+        {
+            cmd = new SqlCommand();
+            dsUsuario = new DataSet();
+            da = new SqlDataAdapter();
+            con = new ConexionBD();
+            cmd.Connection = con.establecerConexion();
+            con.abrirConexion();
+            cmd.CommandText = "GetPublicidad";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(dsUsuario);
+            con.cerrarConexion();
+            dsUsuario.AcceptChanges();
+            string json = JsonConvert.SerializeObject(dsUsuario, Formatting.Indented);
+            return json;
+        }
+
+
+        public string jsonReporte()
+        {
+            cmd = new SqlCommand();
+            dsUsuario = new DataSet();
+            da = new SqlDataAdapter();
+            con = new ConexionBD();
+            cmd.Connection = con.establecerConexion();
+            con.abrirConexion();
+            cmd.CommandText = "GetReporte";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(dsUsuario);
+            con.cerrarConexion();
+            dsUsuario.AcceptChanges();
+            string json = JsonConvert.SerializeObject(dsUsuario, Formatting.Indented);
+            return json;
+        }
+
+
+        public string jsonAviso()
+        {
+            cmd = new SqlCommand();
+            dsUsuario = new DataSet();
+            da = new SqlDataAdapter();
+            con = new ConexionBD();
+            cmd.Connection = con.establecerConexion();
+            con.abrirConexion();
+            cmd.CommandText = "GetAviso";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(dsUsuario);
+            con.cerrarConexion();
+            dsUsuario.AcceptChanges();
+            string json = JsonConvert.SerializeObject(dsUsuario, Formatting.Indented);
+            return json;
+        }
         public int creaPublicacionSP(object obj)
         {
             PublicacionBO data = (PublicacionBO)obj;            

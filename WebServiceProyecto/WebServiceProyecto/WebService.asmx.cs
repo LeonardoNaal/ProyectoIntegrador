@@ -75,6 +75,24 @@ namespace WebServiceProyecto
             return s.jsonPublicacion();
         }
         [WebMethod]
+        public string jsonAviso()
+        {
+            PublicacionDAO s = new PublicacionDAO();
+            return s.jsonAviso();
+        }
+        [WebMethod]
+        public string jsonPublicidad()
+        {
+            PublicacionDAO s = new PublicacionDAO();
+            return s.jsonPublicidad();
+        }
+        [WebMethod]
+        public string jsonReporte()
+        {
+            PublicacionDAO s = new PublicacionDAO();
+            return s.jsonReporte();
+        }
+        [WebMethod]
         public byte[] imagenes(int cod)
         {
             PublicacionDAO s = new PublicacionDAO();
