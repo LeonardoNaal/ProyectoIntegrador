@@ -6,3 +6,11 @@ C:\Users\admin\Documents\Visual Studio 2015\Projects\WebServiceProyecto\WebServi
 C:\Users\admin\Documents\Visual Studio 2015\Projects\WebServiceProyecto\WebServiceProyecto\obj\Debug\WebServiceProyecto.pdb
 C:\Users\admin\Documents\Visual Studio 2015\Projects\WebServiceProyecto\WebServiceProyecto\bin\Newtonsoft.Json.pdb
 C:\Users\admin\Documents\Visual Studio 2015\Projects\WebServiceProyecto\WebServiceProyecto\bin\Newtonsoft.Json.xml
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\WebServiceProyecto.dll.config
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\WebServiceProyecto.dll
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\WebServiceProyecto.pdb
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\Newtonsoft.Json.pdb
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\Newtonsoft.Json.xml
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\obj\Debug\WebServiceProyecto.csprojResolveAssemblyReference.cache
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\obj\Debug\WebServiceProyecto.dll
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\obj\Debug\WebServiceProyecto.pdb
