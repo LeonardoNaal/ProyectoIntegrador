@@ -1,0 +1,8 @@
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\WebServiceProyecto.dll.config
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\WebServiceProyecto.dll
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\WebServiceProyecto.pdb
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\Newtonsoft.Json.pdb
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\bin\Newtonsoft.Json.xml
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\obj\Release\WebServiceProyecto.csprojResolveAssemblyReference.cache
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\obj\Release\WebServiceProyecto.dll
+C:\Users\david\OneDrive\Documentos\GitHub\ProyectoIntegrador\WebServiceProyecto\WebServiceProyecto\obj\Release\WebServiceProyecto.pdb

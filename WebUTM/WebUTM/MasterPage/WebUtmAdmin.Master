@@ -25,14 +25,41 @@
     <!--webfonts-->
     <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'/>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'/>
-       <script src="/Recursos/Bootstrap/js/jquery.min.js"></script>
+    <script src="/Recursos/Bootstrap/js/jquery.min.js"></script>
     <script src="../Recursos/Bootstrap/js/bootstrap.min.js"></script>
     <script src="../Recursos/Bootstrap/js/scripts.js"></script>
+    <script src="../JS/JqueryMin.js"></script>
        <script type="text/javascript">
     function openModal() {
         $('#mymodal').modal('show');
     }
 </script>
+    <!--Script para elegir fecha-->
+
+
+    <script>
+        (function () {
+            var soportadateInput = false;
+            var pruebaFecha = document.createElement("Input");
+
+            pruebaFecha.setAttribute("type", "date");
+            if (pruebaFecha.type == "date") {
+                pruebaFecha.setAttribute('value', 'fecha-no-valida');
+                if (pruebaFecha.value !== 'fecha-no-valida') {
+                    soportadateInput = true;
+                };
+            };
+
+            var oFecha = document.getElementById('txtFecha2');
+            if (!soportadateInput) {
+                oFecha.setAttribute('class','sin-soporte');
+            };
+            oFecha.value = "01/01/2017";
+            oFecha.addEventListener('blur', function (e) {
+            txtFecha2.value=oFecha.value;
+            },false);
+        })
+    </script>
     
 </head>
 <body>

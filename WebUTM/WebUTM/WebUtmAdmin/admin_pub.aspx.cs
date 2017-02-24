@@ -8,6 +8,7 @@ using WebUTM.localhost;
 using System.Data;
 using System.IO;
 using Newtonsoft.Json;
+
 namespace WebUTM.WebUtmAdmin
 {
     public partial class admin_pub : System.Web.UI.Page
@@ -36,7 +37,6 @@ namespace WebUTM.WebUtmAdmin
             txtDescripcion.Text = "";
             txtTitulo.Text = "";
             txtFecha.Text = "";
-            
             DropDownList1.SelectedIndex = 0;
             image1.ImageUrl=null;
         }
@@ -74,10 +74,6 @@ namespace WebUTM.WebUtmAdmin
             {
                 ob.IdTipo = Convert.ToInt32(DropDownList1.SelectedItem.Value.ToString());
             }
-            //if(txtFecha.Text.Trim()!="")
-            //{
-
-            //}
             return ob;
         }
         DataTable dt;
@@ -214,11 +210,10 @@ namespace WebUTM.WebUtmAdmin
                     objPublicaciones.Video = bytes;
                 }
             }
-           
             if (FileUpload1.PostedFile.ContentLength != 0)
             {
                 System.Web.HttpPostedFile ImgFile = FileUpload1.PostedFile;
-                // Almacenamos la imagen en una variable para insertarla en la bbdd.
+                // Almacenamos la imagen en una variable para insertarla en la bd.
                 Byte[] byteImage = new Byte[FileUpload1.PostedFile.ContentLength];
                 ImgFile.InputStream.Read(byteImage, 0, FileUpload1.PostedFile.ContentLength);
                 objPublicaciones.Imagen = byteImage;
@@ -240,14 +235,14 @@ namespace WebUTM.WebUtmAdmin
                 int i = Servicios.AgregarPublicacion(objPublicaciones);
                 if (i == 1)
                 {
-                    Mensaje("Los datos se agregarón correctamente");
+                    Mensaje("Los datos se agregaron correctamente");
                     Limpiar();
                     actualizar();
                     LinkButton3.Enabled = false;
                 }
                 else
                 {
-                    Mensaje("Los datos no se agregarón, intenta de nuevo");
+                    Mensaje("Los datos no se agregaron, intenta de nuevo");
                 }
             }
             else
@@ -255,7 +250,13 @@ namespace WebUTM.WebUtmAdmin
                 Mensaje(mensaje);
             }
         }
-
+        public static byte[] ImagenABytes(System.Drawing.Image ima)
+        {
+            MemoryStream ms = new MemoryStream();
+           ima.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] arreglo = ms.ToArray();
+            return arreglo;
+        }
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(servicio.BuscarPublicaciones(Filtro()));
@@ -267,7 +268,6 @@ namespace WebUTM.WebUtmAdmin
         {
             PublicacionBO objPublicaciones = new PublicacionBO();
             string mensaje = "";
-
             if (Label4.Text.Trim().Length != 0)
             {
                 byte[] newBytes = Convert.FromBase64String((Label4.Text));

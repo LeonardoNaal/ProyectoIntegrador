@@ -7,6 +7,7 @@ using System.IO;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
 using WebServiceProyecto.BO;
+using System.Windows.Forms;
 using System.Drawing;
 namespace WebServiceProyecto.DAO
 {
@@ -66,6 +67,67 @@ namespace WebServiceProyecto.DAO
             return json;
         }
 
+        public string jsonPublicidad()
+        {
+            cmd = new SqlCommand();
+            dsUsuario = new DataSet();
+            da = new SqlDataAdapter();
+            con = new ConexionBD();
+            cmd.Connection = con.establecerConexion();
+            con.abrirConexion();
+            cmd.CommandText = "GetPublicidad";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(dsUsuario);
+            con.cerrarConexion();
+            dsUsuario.AcceptChanges();
+            string json = JsonConvert.SerializeObject(dsUsuario, Formatting.Indented);
+            return json;
+        }
+
+
+        public string jsonReporte()
+        {
+            cmd = new SqlCommand();
+            dsUsuario = new DataSet();
+            da = new SqlDataAdapter();
+            con = new ConexionBD();
+            cmd.Connection = con.establecerConexion();
+            con.abrirConexion();
+            cmd.CommandText = "GetReporte";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(dsUsuario);
+            con.cerrarConexion();
+            dsUsuario.AcceptChanges();
+            string json = JsonConvert.SerializeObject(dsUsuario, Formatting.Indented);
+            return json;
+        }
+
+
+        public string jsonAviso()
+        {
+            cmd = new SqlCommand();
+            dsUsuario = new DataSet();
+            da = new SqlDataAdapter();
+            con = new ConexionBD();
+            cmd.Connection = con.establecerConexion();
+            con.abrirConexion();
+            cmd.CommandText = "GetAviso";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(dsUsuario);
+            con.cerrarConexion();
+            dsUsuario.AcceptChanges();
+            string json = JsonConvert.SerializeObject(dsUsuario, Formatting.Indented);
+            return json;
+        }
         public int creaPublicacionSP(object obj)
         {
             PublicacionBO data = (PublicacionBO)obj;            
@@ -83,6 +145,12 @@ namespace WebServiceProyecto.DAO
                 SqlParameter imageParam = cmd.Parameters.Add("@image", System.Data.SqlDbType.Image);
                 imageParam.Value =data.Imagen;
             }
+            else
+            {
+                PictureBox pic = new PictureBox();
+                SqlParameter imageParam = cmd.Parameters.Add("@image", System.Data.SqlDbType.Image);
+                imageParam.Value = ImagenABytes(pic.Image = Image.FromFile("C:\\Users\\admin\\Documents\\Visual Studio 2015\\Projects\\WebServiceProyecto\\WebServiceProyecto\\publicaciones.png"));
+            }
             cmd.Parameters.AddWithValue("@Contenido", data.Contenido);
             if (data.Video != null)
             {
@@ -98,7 +166,15 @@ namespace WebServiceProyecto.DAO
             }
             return 1;
         }
-        
+
+        public static byte[] ImagenABytes(Image imagen)
+        {
+            MemoryStream ms = new MemoryStream();
+            imagen.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] arreglo = ms.ToArray();
+            return arreglo;
+        }
+
         public byte[] imagen(int cod)
         {
             DataSet ds = new DataSet();

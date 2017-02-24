@@ -110,6 +110,7 @@
     <Content Include="5\thumbnail-slider.js" />
     <Content Include="5\tooltip.css" />
     <Content Include="5\tooltip.js" />
+    <Content Include="CSS\jquery-ui.css" />
     <Content Include="engine1\arrows.png" />
     <Content Include="engine1\bg.png" />
     <Content Include="engine1\bullet.png" />
@@ -128,6 +129,8 @@
     <Content Include="FlowPlayer\flowplayer.controls-3.2.15.swf" />
     <Content Include="FlowPlayer\flowplayer.pseudostreaming-3.2.12.swf" />
     <Content Include="generic.css" />
+    <Content Include="JS\Jquery-ui.min.js" />
+    <Content Include="JS\JqueryMin.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

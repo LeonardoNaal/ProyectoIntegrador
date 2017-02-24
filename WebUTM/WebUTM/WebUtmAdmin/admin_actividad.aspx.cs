@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using WebUTM.localhost;
 using System.Data;
 using Newtonsoft.Json;
+using System.Globalization;
 namespace WebUTM.WebUtmAdmin
 {
     public partial class admin_actividad : System.Web.UI.Page
@@ -106,13 +107,15 @@ namespace WebUTM.WebUtmAdmin
                 DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(servicio.BuscarActividad(s));
                 dt = dataSet.Tables[0];
                 DataRow row = dt.Rows[0];
-                txtNombre.Text = row["Nombre"].ToString();
-                txtFecha1.Text = row["FechaIni"].ToString().Substring(0, 10);
-                txtFecha2.Text = row["FechaFin"].ToString().Substring(0, 10);
+                txtNombre.Text = row["Nombre"].ToString();                
+                    DateTime dt1 = DateTime.ParseExact(row["FechaIni"].ToString().Substring(0, 10), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    txtFecha1.Value = dt1.ToString("yyyy-MM-dd");
+                    DateTime dt2 = DateTime.ParseExact(row["FechaFin"].ToString().Substring(0, 10), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    txtFecha2.Value = dt2.ToString("yyyy-MM-dd");
                 txtDescripcion.Text = row["Descripcion"].ToString();
                 lblcodUser.Text = row["CodUsuario"].ToString();
-                txtHoraIni.Text = row["HoraInicio"].ToString();
-                txtHoraFin.Text = row["HoraFin"].ToString();
+                txtHoraIni.Value = row["HoraInicio"].ToString();
+                txtHoraFin.Value = row["HoraFin"].ToString();
                 if (row["IDSitio"].ToString() != "")
                 {
                     DDLTipoSitio.SelectedValue = row["IDSitio"].ToString();
@@ -139,12 +142,12 @@ namespace WebUTM.WebUtmAdmin
         public void Limpiar()
         {
             txtDescripcion.Text = "";
-            txtFecha1.Text = "";
-            txtFecha2.Text = "";
+            txtFecha1.Value= "";
+            txtFecha2.Value = "";
             txtNombre.Text = "";
-            txtHoraFin.Text = "";
+            txtHoraFin.Value = "";
             DDLTipoSitio.SelectedIndex = 0;
-            txtHoraIni.Text = "";
+            txtHoraIni.Value = "";
         }
         public void agregar()
         {
@@ -158,7 +161,7 @@ namespace WebUTM.WebUtmAdmin
             {
                 mensaje = mensaje + "Introduce el nombre \n";
             }
-            if (txtFecha1.Text.Trim().Length == 0)
+            if (txtFecha1.Value.Trim().Length == 0 || txtFecha1.Value == "dd/mm/aaaa")
             {
                 mensaje = mensaje + "Introduce la fecha inicial \n";
             }
@@ -166,27 +169,32 @@ namespace WebUTM.WebUtmAdmin
             {
                 mensaje = mensaje + "Selecciona el sitio \n";
             }
-            if (txtFecha2.Text.Trim().Length == 0)
+            if (txtFecha2.Value.Trim().Length == 0 || txtFecha2.Value=="dd/mm/aaaa")
             {
                 mensaje = mensaje + "Introduce la fecha final \n";
             }
-            if (txtHoraIni.Text.Trim().Length == 0)
+            if (txtHoraIni.Value.Trim().Length == 0)
             {
                 mensaje = mensaje + "Introduce la hora inicio \n";
             }
-            if (txtHoraFin.Text.Trim().Length == 0)
+            if (txtHoraFin.Value.Trim().Length == 0)
             {
                 mensaje = mensaje + "Introduce la hora final \n";
             }
+
             if (mensaje.Trim().Length == 0)
             {
                 act.CodUsuario = codUser;
                 act.Descripcion = txtDescripcion.Text;
-                act.FechaFinal = txtFecha2.Text;
-                act.FechaIni = txtFecha1.Text;
+                DateTime dt2 = DateTime.ParseExact(txtFecha2.Value,"yyyy-MM-dd",CultureInfo.InvariantCulture);
+                string d2 = dt2.ToString("dd/MM/yyyy");
+                act.FechaFinal = d2;
+                DateTime dt1 = DateTime.ParseExact(txtFecha1.Value, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                string d1 = dt1.ToString("dd/MM/yyyy");
+                act.FechaIni = d1;
                 act.Nombre = txtNombre.Text;
-                act.HoraIni = txtHoraIni.Text;
-                act.HoraFin = txtHoraFin.Text;
+                act.HoraIni = txtHoraIni.Value;
+                act.HoraFin = txtHoraFin.Value;
                 act.IdSitio = Convert.ToInt32(DDLTipoSitio.SelectedItem.Value.ToString());
                 int t = servicio.AgregarActividad(act);
                 if (t == 1)
@@ -204,7 +212,7 @@ namespace WebUTM.WebUtmAdmin
                 Mensaje(mensaje);
             }
         }
-
+       
         public void Modificar()
         {
             ActividadesBO act = new ActividadesBO();
@@ -217,19 +225,19 @@ namespace WebUTM.WebUtmAdmin
             {
                 mensaje = mensaje + "Introduce el nombre \n";
             }
-            if (txtFecha1.Text.Trim().Length == 0)
+            if (txtFecha2.Value.Trim().Length == 0 || txtFecha2.Value == "dd/mm/aaaa")
             {
                 mensaje = mensaje + "Introduce el fecha inicio \n";
             }
-            if (txtFecha2.Text.Trim().Length == 0)
+            if (txtFecha2.Value.Trim().Length == 0 || txtFecha2.Value == "dd/mm/aaaa")
             {
                 mensaje = mensaje + "Introduce el fecha final \n";
             }
-            if (txtHoraIni.Text.Trim().Length == 0)
+            if (txtHoraIni.Value.Trim().Length == 0)
             {
                 mensaje = mensaje + "Introduce la hora inicio \n";
             }
-            if (txtHoraFin.Text.Trim().Length == 0)
+            if (txtHoraFin.Value.Trim().Length == 0)
             {
                 mensaje = mensaje + "Introduce la hora final \n";
             }
@@ -241,10 +249,14 @@ namespace WebUTM.WebUtmAdmin
             {
                 act.Descripcion = txtDescripcion.Text;
                 act.Nombre = txtNombre.Text;
-                act.FechaFinal = txtFecha2.Text;
-                act.FechaIni = txtFecha1.Text;
-                act.HoraIni = txtHoraIni.Text;
-                act.HoraFin = txtHoraFin.Text;
+                DateTime dt2 = DateTime.ParseExact(txtFecha2.Value, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                string d2 = dt2.ToString("dd/MM/yyyy");
+                act.FechaFinal = d2;
+                DateTime dt1 = DateTime.ParseExact(txtFecha1.Value, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                string d1 = dt1.ToString("dd/MM/yyyy");
+                act.FechaIni = d1;
+                act.HoraIni = txtHoraIni.Value;
+                act.HoraFin = txtHoraFin.Value;
                 act.CodUsuario = lblcodUser.Text;
                 act.IdSitio = Convert.ToInt32(DDLTipoSitio.SelectedItem.Value.ToString());
                 act.IdActividad = Convert.ToInt32(lblcodAct.Text);
@@ -255,8 +267,8 @@ namespace WebUTM.WebUtmAdmin
                     LinkButton3.Enabled = false;
                     LinkButton1.Enabled = true;
                     LinkButton2.Enabled = false;
-                    txtFecha1.Enabled = true;
-                    txtFecha2.Enabled = true;
+                    txtFecha1.Disabled = true;
+                    txtFecha2.Disabled = true;
                     Limpiar();
                 }
                 else
@@ -294,7 +306,6 @@ namespace WebUTM.WebUtmAdmin
             index += 1;
             Bind();
         }
-        
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
@@ -312,25 +323,25 @@ ActividadesBO obj = new ActividadesBO();
             {
                 obj.Nombre = txtNombre.Text;
             }
-            if (txtFecha1.Text.Trim().Length != 0)
+            if (txtFecha2.Value.Trim().Length != 0 && txtFecha2.Value != "dd/mm/aaaa")
             {
-                obj.FechaIni = txtFecha1.Text;
+                obj.FechaIni = txtFecha1.Value;
             }
             if (DDLTipoSitio.SelectedItem.ToString() != "Seleccionar...")
             {
                 obj.IdSitio= Convert.ToInt32(DDLTipoSitio.SelectedItem.Value.ToString());
             }
-            if (txtFecha2.Text.Trim().Length != 0)
+            if (txtFecha2.Value.Trim().Length != 0 || txtFecha2.Value != "dd/mm/aaaa")
             {
-                obj.FechaFinal = txtFecha2.Text;
+                obj.FechaFinal = txtFecha2.Value;
             }
-            if (txtHoraIni.Text.Trim().Length != 0)
+            if (txtHoraIni.Value.Trim().Length != 0)
             {
-                obj.HoraIni = txtHoraIni.Text;
+                obj.HoraIni = txtHoraIni.Value;
             }
-            if (txtHoraFin.Text.Trim().Length != 0)
+            if (txtHoraFin.Value.Trim().Length != 0)
             {
-                obj.HoraFin = txtHoraFin.Text;
+                obj.HoraFin = txtHoraFin.Value;
             }
             DataSet dataSetTipos = JsonConvert.DeserializeObject<DataSet>(servicio.BuscarActividad(obj));
             DataList1.DataSource = dataSetTipos.Tables[0];

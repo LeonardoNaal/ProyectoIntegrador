@@ -73,7 +73,7 @@ namespace WebUTM.WebUtmAdmin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFecha1;
         
         /// <summary>
         /// txtFecha2 control.
@@ -82,7 +82,7 @@ namespace WebUTM.WebUtmAdmin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFecha2;
         
         /// <summary>
         /// txtDescripcion control.
@@ -100,7 +100,7 @@ namespace WebUTM.WebUtmAdmin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraIni;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHoraIni;
         
         /// <summary>
         /// txtHoraFin control.
@@ -109,7 +109,7 @@ namespace WebUTM.WebUtmAdmin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraFin;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHoraFin;
         
         /// <summary>
         /// DDLTipoSitio control.

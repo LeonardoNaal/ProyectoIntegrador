@@ -6,6 +6,7 @@
             <h3>Gestión de Publicaciones</h3>
         </div>
     </div>
+    <!--Script JS-->
     <script type="text/javascript">
         function showImage(input) {
             if (input.files && input.files[0]) {
@@ -66,7 +67,7 @@
                     </div>
                     <div class="col-md-4">
                         <p><b>Fecha:</b></p>
-                        <asp:TextBox ID="txtFecha" runat="server" CssClass="form-control" Enabled="False"></asp:TextBox>
+                        <asp:TextBox  ID="txtFecha" runat="server" CssClass="form-control" Enabled="False" ></asp:TextBox>
                     </div>
                     <div class="col-md-4">
                         <p><b>Tipo de publicación:</b></p>
