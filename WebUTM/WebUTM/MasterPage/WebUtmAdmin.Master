@@ -35,6 +35,8 @@
     }
 </script>
     <!--Script para elegir fecha-->
+
+
     <script>
         (function () {
             var soportadateInput = false;
@@ -48,13 +50,13 @@
                 };
             };
 
-            var oFecha = document.getElementById('txtFecha');
+            var oFecha = document.getElementById('txtFecha2');
             if (!soportadateInput) {
                 oFecha.setAttribute('class','sin-soporte');
             };
-            oFecha.value = "2017-01-01";
+            oFecha.value = "01/01/2017";
             oFecha.addEventListener('blur', function (e) {
-            resultado.value=oFecha.value;
+            txtFecha2.value=oFecha.value;
             },false);
         })
     </script>

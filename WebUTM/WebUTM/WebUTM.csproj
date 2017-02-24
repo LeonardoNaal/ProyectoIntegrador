@@ -110,6 +110,7 @@
     <Content Include="5\thumbnail-slider.js" />
     <Content Include="5\tooltip.css" />
     <Content Include="5\tooltip.js" />
+    <Content Include="CSS\jquery-ui.css" />
     <Content Include="engine1\arrows.png" />
     <Content Include="engine1\bg.png" />
     <Content Include="engine1\bullet.png" />

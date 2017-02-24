@@ -53,12 +53,11 @@
                     </div>
                     <div class="col-md-4">
                         <p><b>Fecha de inicio:</b></p>
-                        <input id="txtFecha" type="date"/>
-                        <asp:TextBox ID="txtFecha1" runat="server" CssClass="form-control"></asp:TextBox>
+                          <input id="txtFecha1" type="date" runat="server"  CssClass="form-control" value="01/01/2017"/>
                     </div>
                     <div class="col-md-4">
                         <p><b>Fecha de término:</b></p>
-                        <asp:TextBox ID="txtFecha2" runat="server" CssClass="form-control"></asp:TextBox>
+                        <input id="txtFecha2" type="date" runat="server"  CssClass="form-control" value="01/01/2017"/>
                     </div>
                 </div>
                 <br />
@@ -68,11 +67,12 @@
                 <div class="row">
                     <div class="col-md-4">
                         <p><b>Hora Inicio:</b></p>
-                <asp:TextBox ID="txtHoraIni" runat="server" CssClass="form-control"></asp:TextBox>
+                        <input id="txtHoraIni" type="time" runat="server" CssClass="form-control"/>
+                
                     </div>
                     <div class="col-md-4">
                         <p><b>Hora Fin:</b></p>
-                <asp:TextBox ID="txtHoraFin" runat="server" CssClass="form-control"></asp:TextBox>
+                        <input type="time" id="txtHoraFin" runat="server" CssClass="form-control"/>
                     </div>
                     <div class="col-md-4">
                          <p><b>Sitio:</b></p>
